@@ -2,11 +2,8 @@
 // 常量定义
 // ========================================
 
-// GitHub 图床基础 URL（使用 jsDelivr CDN 加速）
-export const IMAGE_BASE_URL = 'https://cdn.jsdelivr.net/gh/IT-NuanxinPro/nuanXinProPic@main/wallpaper'
-
-// 原始 GitHub URL（用于下载原图）
-export const IMAGE_RAW_URL = 'https://raw.githubusercontent.com/IT-NuanxinPro/nuanXinProPic/main/wallpaper'
+// GitHub 图床基础 URL（使用 raw.githubusercontent.com，对中文文件名支持更好）
+export const IMAGE_BASE_URL = 'https://raw.githubusercontent.com/IT-NuanxinPro/nuanXinProPic/main/wallpaper'
 
 // 壁纸数据 JSON 路径（使用 import.meta.env.BASE_URL 确保路径正确）
 export const WALLPAPERS_DATA_URL = `${import.meta.env.BASE_URL}data/wallpapers.json`

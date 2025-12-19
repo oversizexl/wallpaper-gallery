@@ -26,10 +26,7 @@ const CONFIG = {
   OUTPUT_FILE: 'wallpapers.json'
 }
 
-// CDN 加速 URL（jsDelivr 比 raw.githubusercontent 快很多）
-const CDN_BASE_URL = `https://cdn.jsdelivr.net/gh/${CONFIG.GITHUB_OWNER}/${CONFIG.GITHUB_REPO}@${CONFIG.GITHUB_BRANCH}/${CONFIG.WALLPAPER_DIR}`
-
-// 原始 URL（用于下载）
+// 使用 raw.githubusercontent.com（更稳定，支持中文文件名）
 const RAW_BASE_URL = `https://raw.githubusercontent.com/${CONFIG.GITHUB_OWNER}/${CONFIG.GITHUB_REPO}/${CONFIG.GITHUB_BRANCH}/${CONFIG.WALLPAPER_DIR}`
 
 /**
@@ -113,22 +110,21 @@ function generateWallpaperData(files) {
     // 根据索引生成模拟上传时间（越前面的越新）
     const uploadDate = new Date(now.getTime() - index * 3600000) // 每张间隔1小时
 
+    // 使用 raw GitHub URL（更稳定）
+    const imageUrl = `${RAW_BASE_URL}/${encodeURIComponent(file.name)}`
+
     return {
       id: `wallpaper-${index + 1}`,
       filename: file.name,
-      // 使用 CDN 加速 URL
-      url: `${CDN_BASE_URL}/${encodeURIComponent(file.name)}`,
-      // 原始下载 URL
-      downloadUrl: `${RAW_BASE_URL}/${encodeURIComponent(file.name)}`,
+      url: imageUrl,
+      downloadUrl: imageUrl,
       size: file.size,
       format: ext,
-      // 分辨率信息
       resolution: {
         width: resolution.width,
         height: resolution.height,
         label: resolution.label
       },
-      // 质量标签
       quality: qualityLabel,
       tags: [qualityLabel, ext, resolution.label],
       createdAt: uploadDate.toISOString(),
@@ -171,7 +167,7 @@ async function main() {
       generatedAt: new Date().toISOString(),
       total: wallpapers.length,
       source: `https://github.com/${CONFIG.GITHUB_OWNER}/${CONFIG.GITHUB_REPO}`,
-      cdnBase: CDN_BASE_URL,
+      baseUrl: RAW_BASE_URL,
       wallpapers
     }
 
@@ -183,7 +179,7 @@ async function main() {
     console.log('='.repeat(50))
     console.log(`Total wallpapers: ${wallpapers.length}`)
     console.log(`Output file: ${outputPath}`)
-    console.log(`CDN URL: ${CDN_BASE_URL}`)
+    console.log(`Base URL: ${RAW_BASE_URL}`)
     console.log('')
 
     // 输出统计
