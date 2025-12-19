@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
-import { formatFileSize, formatDate, getSizeLabel, getFileExtension, downloadFile } from '@/utils/format'
+import { formatFileSize, formatDate, formatRelativeTime, getSizeLabel, getFileExtension, downloadFile } from '@/utils/format'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
 
 const props = defineProps({
@@ -19,22 +19,59 @@ const emit = defineEmits(['close', 'prev', 'next'])
 const imageLoaded = ref(false)
 const imageError = ref(false)
 const downloading = ref(false)
+const actualDimensions = ref({ width: 0, height: 0 })
 
 // Reset state when wallpaper changes
 watch(() => props.wallpaper, () => {
   imageLoaded.value = false
   imageError.value = false
+  actualDimensions.value = { width: 0, height: 0 }
 })
 
-// Computed
-const sizeInfo = computed(() => props.wallpaper ? getSizeLabel(props.wallpaper.size) : null)
+// 质量标签（根据新数据结构或文件大小）
+const quality = computed(() => props.wallpaper?.quality || getSizeLabel(props.wallpaper?.size)?.label || '高清')
+const qualityType = computed(() => {
+  switch (quality.value) {
+    case '超清': return 'warning'
+    case '4K': return 'success'
+    case '高清': return 'primary'
+    default: return 'secondary'
+  }
+})
+
+// 分辨率信息
+const resolution = computed(() => {
+  if (props.wallpaper?.resolution) {
+    return props.wallpaper.resolution
+  }
+  // 如果有实际尺寸，使用实际尺寸
+  if (actualDimensions.value.width > 0) {
+    const w = actualDimensions.value.width
+    const h = actualDimensions.value.height
+    let label = '720P'
+    if (w >= 3840 || h >= 2160) label = '4K+'
+    else if (w >= 2560 || h >= 1440) label = '2K'
+    else if (w >= 1920 || h >= 1080) label = '1080P'
+    return { width: w, height: h, label }
+  }
+  return { label: '1080P' }
+})
+
 const fileExt = computed(() => props.wallpaper ? getFileExtension(props.wallpaper.filename).toUpperCase() : '')
 const formattedSize = computed(() => props.wallpaper ? formatFileSize(props.wallpaper.size) : '')
 const formattedDate = computed(() => props.wallpaper ? formatDate(props.wallpaper.createdAt) : '')
+const relativeTime = computed(() => props.wallpaper ? formatRelativeTime(props.wallpaper.createdAt) : '')
 
 // Handlers
-const handleImageLoad = () => {
+const handleImageLoad = (e) => {
   imageLoaded.value = true
+  // 获取图片实际尺寸
+  if (e.target) {
+    actualDimensions.value = {
+      width: e.target.naturalWidth,
+      height: e.target.naturalHeight
+    }
+  }
 }
 
 const handleImageError = () => {
@@ -154,20 +191,31 @@ onUnmounted(() => {
             <div class="info-header">
               <h3 class="info-title">{{ wallpaper.filename }}</h3>
               <div class="info-tags">
-                <span class="tag" :class="[`tag--${sizeInfo?.type}`]">
-                  {{ sizeInfo?.label }}
+                <span class="tag" :class="[`tag--${qualityType}`]">
+                  {{ quality }}
                 </span>
+                <span class="tag tag--dark">{{ resolution.label }}</span>
                 <span class="tag tag--secondary">{{ fileExt }}</span>
               </div>
             </div>
 
             <div class="info-details">
+              <!-- 分辨率尺寸 -->
+              <div v-if="resolution.width" class="detail-item detail-item--highlight">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+                <span>{{ resolution.width }} × {{ resolution.height }} px</span>
+              </div>
+              <!-- 文件大小 -->
               <div class="detail-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
                 </svg>
                 <span>{{ formattedSize }}</span>
               </div>
+              <!-- 上传日期 -->
               <div class="detail-item">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -176,6 +224,7 @@ onUnmounted(() => {
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
                 <span>{{ formattedDate }}</span>
+                <span class="detail-sub">({{ relativeTime }})</span>
               </div>
             </div>
 
@@ -188,7 +237,7 @@ onUnmounted(() => {
               <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
               </svg>
-              <span>{{ downloading ? '下载中...' : '下载壁纸' }}</span>
+              <span>{{ downloading ? '下载中...' : '下载原图' }}</span>
             </button>
           </div>
         </div>
@@ -206,16 +255,21 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   background: var(--color-bg-modal);
-  backdrop-filter: blur(8px);
-  padding: $spacing-md;
+  backdrop-filter: blur(12px);
+  padding: $spacing-sm;
+
+  @include tablet-up {
+    padding: $spacing-lg;
+  }
 }
 
 .modal-content {
   position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 90vw;
-  max-height: 90vh;
+  width: 100%;
+  max-width: 95vw;
+  max-height: 95vh;
   background: var(--color-bg-card);
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -223,7 +277,12 @@ onUnmounted(() => {
 
   @include tablet-up {
     flex-direction: row;
-    max-width: 1200px;
+    max-width: 1400px;
+    max-height: 90vh;
+  }
+
+  @include desktop-up {
+    max-width: 1600px;
   }
 }
 
@@ -286,7 +345,7 @@ onUnmounted(() => {
     right: $spacing-md;
 
     @include tablet-up {
-      right: calc(300px + $spacing-md);
+      right: calc(320px + $spacing-lg);
     }
   }
 
@@ -311,7 +370,12 @@ onUnmounted(() => {
   background: var(--color-bg-primary);
 
   @include tablet-up {
-    min-width: 500px;
+    min-width: 600px;
+    min-height: 500px;
+  }
+
+  @include desktop-up {
+    min-width: 800px;
   }
 }
 
@@ -332,11 +396,24 @@ onUnmounted(() => {
 
 .modal-image {
   max-width: 100%;
-  max-height: 70vh;
+  max-height: 75vh;
   object-fit: contain;
+  opacity: 0;
+  animation: imageReveal 0.5s ease forwards;
 
   @include tablet-up {
-    max-height: 80vh;
+    max-height: 85vh;
+  }
+}
+
+@keyframes imageReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -348,8 +425,10 @@ onUnmounted(() => {
   background: var(--color-bg-card);
 
   @include tablet-up {
-    width: 300px;
+    width: 320px;
+    min-width: 320px;
     border-left: 1px solid var(--color-border);
+    padding: $spacing-xl;
   }
 }
 
@@ -368,27 +447,29 @@ onUnmounted(() => {
 
 .info-tags {
   display: flex;
+  flex-wrap: wrap;
   gap: $spacing-xs;
 }
 
 .tag {
-  padding: 2px $spacing-sm;
+  padding: 4px $spacing-sm;
   font-size: $font-size-xs;
-  font-weight: $font-weight-semibold;
+  font-weight: $font-weight-bold;
   border-radius: $radius-sm;
+  letter-spacing: 0.3px;
 
   &--primary {
-    background: var(--color-accent-light);
+    background: rgba(99, 102, 241, 0.15);
     color: var(--color-accent);
   }
 
   &--success {
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(16, 185, 129, 0.15);
     color: var(--color-success);
   }
 
   &--warning {
-    background: rgba(245, 158, 11, 0.1);
+    background: rgba(245, 158, 11, 0.15);
     color: var(--color-warning);
   }
 
@@ -396,12 +477,24 @@ onUnmounted(() => {
     background: var(--color-bg-hover);
     color: var(--color-text-secondary);
   }
+
+  &--dark {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    [data-theme="dark"] & {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  }
 }
 
 .info-details {
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: var(--color-bg-hover);
+  border-radius: var(--radius-md);
 }
 
 .detail-item {
@@ -412,10 +505,26 @@ onUnmounted(() => {
   color: var(--color-text-secondary);
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     color: var(--color-text-muted);
+    flex-shrink: 0;
   }
+
+  &--highlight {
+    color: var(--color-text-primary);
+    font-weight: $font-weight-medium;
+
+    svg {
+      color: var(--color-accent);
+    }
+  }
+}
+
+.detail-sub {
+  font-size: $font-size-xs;
+  color: var(--color-text-muted);
+  margin-left: 2px;
 }
 
 .download-btn {

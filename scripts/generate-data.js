@@ -26,8 +26,11 @@ const CONFIG = {
   OUTPUT_FILE: 'wallpapers.json'
 }
 
-// 图床 URL 基础路径
-const IMAGE_BASE_URL = `https://raw.githubusercontent.com/${CONFIG.GITHUB_OWNER}/${CONFIG.GITHUB_REPO}/${CONFIG.GITHUB_BRANCH}/${CONFIG.WALLPAPER_DIR}`
+// CDN 加速 URL（jsDelivr 比 raw.githubusercontent 快很多）
+const CDN_BASE_URL = `https://cdn.jsdelivr.net/gh/${CONFIG.GITHUB_OWNER}/${CONFIG.GITHUB_REPO}@${CONFIG.GITHUB_BRANCH}/${CONFIG.WALLPAPER_DIR}`
+
+// 原始 URL（用于下载）
+const RAW_BASE_URL = `https://raw.githubusercontent.com/${CONFIG.GITHUB_OWNER}/${CONFIG.GITHUB_REPO}/${CONFIG.GITHUB_BRANCH}/${CONFIG.WALLPAPER_DIR}`
 
 /**
  * 通过 GitHub API 获取壁纸列表
@@ -64,31 +67,71 @@ async function fetchWallpapersFromGitHub() {
 }
 
 /**
- * 根据文件大小生成分辨率标签
+ * 根据文件大小估算分辨率
  */
-function getSizeLabel(size) {
-  if (size >= 5 * 1024 * 1024) return '超清'
-  if (size >= 2 * 1024 * 1024) return '4K'
-  if (size >= 500 * 1024) return '高清'
-  return '标清'
+function estimateResolution(size, format) {
+  // 根据文件大小和格式估算分辨率
+  // PNG 通常比 JPG 大，所以分开处理
+  const isPng = format.toUpperCase() === 'PNG'
+
+  if (isPng) {
+    if (size >= 8 * 1024 * 1024) return { width: 3840, height: 2160, label: '4K+' }
+    if (size >= 4 * 1024 * 1024) return { width: 2560, height: 1440, label: '2K' }
+    if (size >= 2 * 1024 * 1024) return { width: 1920, height: 1080, label: '1080P' }
+    return { width: 1280, height: 720, label: '720P' }
+  } else {
+    if (size >= 5 * 1024 * 1024) return { width: 3840, height: 2160, label: '4K+' }
+    if (size >= 2 * 1024 * 1024) return { width: 2560, height: 1440, label: '2K' }
+    if (size >= 800 * 1024) return { width: 1920, height: 1080, label: '1080P' }
+    return { width: 1280, height: 720, label: '720P' }
+  }
+}
+
+/**
+ * 根据分辨率生成质量标签
+ */
+function getQualityLabel(resolution) {
+  switch (resolution.label) {
+    case '4K+': return '超清'
+    case '2K': return '4K'
+    case '1080P': return '高清'
+    default: return '标清'
+  }
 }
 
 /**
  * 生成壁纸数据
  */
 function generateWallpaperData(files) {
+  const now = new Date()
+
   return files.map((file, index) => {
     const ext = path.extname(file.name).replace('.', '').toUpperCase()
-    const sizeLabel = getSizeLabel(file.size)
+    const resolution = estimateResolution(file.size, ext)
+    const qualityLabel = getQualityLabel(resolution)
+
+    // 根据索引生成模拟上传时间（越前面的越新）
+    const uploadDate = new Date(now.getTime() - index * 3600000) // 每张间隔1小时
 
     return {
       id: `wallpaper-${index + 1}`,
       filename: file.name,
-      url: `${IMAGE_BASE_URL}/${encodeURIComponent(file.name)}`,
+      // 使用 CDN 加速 URL
+      url: `${CDN_BASE_URL}/${encodeURIComponent(file.name)}`,
+      // 原始下载 URL
+      downloadUrl: `${RAW_BASE_URL}/${encodeURIComponent(file.name)}`,
       size: file.size,
       format: ext,
-      tags: [sizeLabel, ext],
-      createdAt: new Date().toISOString(),
+      // 分辨率信息
+      resolution: {
+        width: resolution.width,
+        height: resolution.height,
+        label: resolution.label
+      },
+      // 质量标签
+      quality: qualityLabel,
+      tags: [qualityLabel, ext, resolution.label],
+      createdAt: uploadDate.toISOString(),
       sha: file.sha
     }
   })
@@ -128,6 +171,7 @@ async function main() {
       generatedAt: new Date().toISOString(),
       total: wallpapers.length,
       source: `https://github.com/${CONFIG.GITHUB_OWNER}/${CONFIG.GITHUB_REPO}`,
+      cdnBase: CDN_BASE_URL,
       wallpapers
     }
 
@@ -139,18 +183,19 @@ async function main() {
     console.log('='.repeat(50))
     console.log(`Total wallpapers: ${wallpapers.length}`)
     console.log(`Output file: ${outputPath}`)
+    console.log(`CDN URL: ${CDN_BASE_URL}`)
     console.log('')
 
     // 输出统计
     const stats = {
       jpg: wallpapers.filter(w => w.format === 'JPG' || w.format === 'JPEG').length,
       png: wallpapers.filter(w => w.format === 'PNG').length,
-      other: wallpapers.filter(w => !['JPG', 'JPEG', 'PNG'].includes(w.format)).length
+      hd: wallpapers.filter(w => w.quality === '超清' || w.quality === '4K').length
     }
-    console.log('Format statistics:')
+    console.log('Statistics:')
     console.log(`  JPG: ${stats.jpg}`)
     console.log(`  PNG: ${stats.png}`)
-    if (stats.other > 0) console.log(`  Other: ${stats.other}`)
+    console.log(`  HD (4K+): ${stats.hd}`)
 
   } catch (error) {
     console.error('Error generating wallpaper data:', error)
