@@ -16,6 +16,25 @@ const _urlParts = {
 export const CDN_VERSION = '1.0.1'
 
 /**
+ * 为任意 URL 追加 CDN 版本号参数
+ * - 如果已经带有查询参数，则追加 &v=xxx
+ * - 如果没有查询参数，则追加 ?v=xxx
+ * - 如果 URL 为空或已包含 v=（你手动写了版本），则原样返回
+ * @param {string} url - 原始 URL
+ * @returns {string} 带版本号的 URL
+ */
+export function withCdnVersion(url) {
+  if (!url)
+    return url
+
+  // 已经手动带了版本参数的，避免重复追加
+  if (url.includes('v='))
+    return url
+
+  return url.includes('?') ? `${url}&v=${CDN_VERSION}` : `${url}?v=${CDN_VERSION}`
+}
+
+/**
  * 动态构建图片 URL（防止静态分析）
  * @param {string} path - 相对路径，如 /wallpaper/desktop/xxx.png
  * @returns {string} 完整 URL

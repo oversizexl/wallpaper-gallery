@@ -2,7 +2,7 @@
 import { gsap } from 'gsap'
 import { computed, onMounted, ref } from 'vue'
 import { IMAGE_PROXY } from '@/utils/constants'
-import { formatFileSize, getDisplayFilename, highlightText } from '@/utils/format'
+import { formatFileSize, getDisplayFilename, highlightText, withCdnVersion } from '@/utils/format'
 
 const props = defineProps({
   wallpaper: {
@@ -34,9 +34,10 @@ const useProxy = ref(false)
 const thumbnailUrl = computed(() => {
   if (useProxy.value) {
     // 使用代理服务生成缩略图
-    return `${IMAGE_PROXY.BASE_URL}?url=${encodeURIComponent(props.wallpaper.url)}&w=${IMAGE_PROXY.THUMB_WIDTH}&q=${IMAGE_PROXY.THUMB_QUALITY}&output=${IMAGE_PROXY.FORMAT}`
+    return `${IMAGE_PROXY.BASE_URL}?url=${encodeURIComponent(withCdnVersion(props.wallpaper.url))}&w=${IMAGE_PROXY.THUMB_WIDTH}&q=${IMAGE_PROXY.THUMB_QUALITY}&output=${IMAGE_PROXY.FORMAT}`
   }
-  return props.wallpaper.thumbnailUrl || props.wallpaper.url
+  const base = props.wallpaper.thumbnailUrl || props.wallpaper.url
+  return withCdnVersion(base)
 })
 
 const formattedSize = computed(() => formatFileSize(props.wallpaper.size))

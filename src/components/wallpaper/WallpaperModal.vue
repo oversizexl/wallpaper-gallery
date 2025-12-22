@@ -2,7 +2,7 @@
 import { gsap } from 'gsap'
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
-import { downloadFile, formatDate, formatFileSize, formatRelativeTime, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/format'
+import { downloadFile, formatDate, formatFileSize, formatRelativeTime, getDisplayFilename, getFileExtension, getResolutionLabel, withCdnVersion } from '@/utils/format'
 
 const props = defineProps({
   wallpaper: {
@@ -41,16 +41,16 @@ const displayUrl = computed(() => {
 
   // 如果没有预览图，直接返回原图
   if (!hasPreview.value) {
-    return props.wallpaper.url
+    return withCdnVersion(props.wallpaper.url)
   }
 
   // 如果用户选择查看原图，返回原图 URL
   if (showOriginal.value) {
-    return props.wallpaper.url
+    return withCdnVersion(props.wallpaper.url)
   }
 
   // 默认返回预览图 URL
-  return props.wallpaper.previewUrl
+  return withCdnVersion(props.wallpaper.previewUrl || props.wallpaper.url)
 })
 
 // GSAP 入场动画

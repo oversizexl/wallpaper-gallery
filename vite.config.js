@@ -1,4 +1,3 @@
-// import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
 import { VantResolver } from '@vant/auto-import-resolver'
 import vue from '@vitejs/plugin-vue'
@@ -8,9 +7,6 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import compression from 'vite-plugin-compression'
-
-// 是否为生产环境
-// const isProduction = process.env.NODE_ENV === 'production'
 
 // https://vite.dev/config/
 export default defineConfig({
