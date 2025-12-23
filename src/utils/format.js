@@ -2,7 +2,7 @@
 // 格式化工具函数
 // ========================================
 
-import { RESOLUTION_THRESHOLDS } from '@/utils/constants'
+import { CDN_VERSION, RESOLUTION_THRESHOLDS } from '@/utils/constants'
 
 // URL 构建器（运行时动态拼接，防止静态分析提取完整 URL）
 const _urlParts = {
@@ -15,11 +15,11 @@ const _urlParts = {
 /**
  * 动态构建图片 URL（防止静态分析）
  * @param {string} path - 相对路径，如 /wallpaper/desktop/xxx.png
- * @returns {string} 完整 URL
+ * @returns {string} 完整 URL（带版本号参数刷新缓存）
  */
 export function buildImageUrl(path) {
   const { p, h, g, r } = _urlParts
-  return `${p}${h}${g}${r}${path}`
+  return `${p}${h}${g}${r}${path}?${CDN_VERSION}`
 }
 
 /**
