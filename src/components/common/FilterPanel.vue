@@ -836,6 +836,9 @@ function resetFilters() {
 // 响应式
 @include mobile-only {
   .filter-panel {
+    position: sticky;
+    top: $header-height; // 固定在 AppHeader 下方
+    z-index: 99; // 低于 AppHeader 的 100
     padding: $spacing-sm $spacing-md;
     margin-bottom: $spacing-md;
   }
