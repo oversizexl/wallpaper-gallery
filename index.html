@@ -7,19 +7,51 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
-    <meta name="description" content="Wallpaper Gallery - 精选高清4K壁纸，免费下载" />
-    <meta name="keywords" content="壁纸,高清壁纸,4K壁纸,桌面壁纸,免费壁纸" />
-    <meta name="theme-color" content="#6366f1" />
-    <title>Wallpaper Gallery - 精选高清壁纸</title>
 
-    <!-- Import Map: 映射裸模块说明符到 CDN -->
+    <!-- SEO 基础优化 -->
+    <meta name="description" content="Wallpaper Gallery - 精选高清4K壁纸，涵盖动漫、风景、人像、游戏等多种分类，免费下载，支持电脑壁纸、手机壁纸和头像" />
+    <meta name="keywords" content="壁纸,高清壁纸,4K壁纸,桌面壁纸,手机壁纸,免费壁纸,动漫壁纸,风景壁纸,人像壁纸,游戏壁纸,头像" />
+    <meta name="author" content="Wallpaper Gallery" />
+    <meta name="theme-color" content="#6366f1" />
+
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://wallpaper.061129.xyz/" />
+    <meta property="og:title" content="Wallpaper Gallery - 精选高清壁纸" />
+    <meta property="og:description" content="免费高清 4K 壁纸，涵盖动漫、风景、人像等多种分类，支持电脑壁纸、手机壁纸和头像下载" />
+    <meta property="og:image" content="https://wallpaper.061129.xyz/og-image.jpg" />
+    <meta property="og:site_name" content="Wallpaper Gallery" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://wallpaper.061129.xyz/" />
+    <meta name="twitter:title" content="Wallpaper Gallery - 精选高清壁纸" />
+    <meta name="twitter:description" content="免费高清 4K 壁纸，涵盖动漫、风景、人像等多种分类" />
+    <meta name="twitter:image" content="https://wallpaper.061129.xyz/twitter-card.jpg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://wallpaper.061129.xyz/" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <title>Wallpaper Gallery - 精选高清4K壁纸免费下载</title>
+
+    <!-- DNS 预解析和预连接（加速 CDN 加载） -->
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+
+    <!-- Import Map: 映射裸模块说明符到 CDN (使用 unpkg - Cloudflare CDN，国内访问更稳定) -->
     <script type="importmap">
       {
         "imports": {
-          "vue": "https://cdn.jsdelivr.net/npm/vue@3.5.24/dist/vue.esm-browser.prod.js",
-          "vue-router": "https://cdn.jsdelivr.net/npm/vue-router@4.6.4/dist/vue-router.esm-browser.js",
-          "@vue/devtools-api": "https://cdn.jsdelivr.net/npm/@vue/devtools-api@6.6.4/lib/esm/index.js",
-          "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.14.2/index.js"
+          "vue": "https://unpkg.com/vue@3.5.24/dist/vue.esm-browser.prod.js",
+          "vue-router": "https://unpkg.com/vue-router@4.6.4/dist/vue-router.esm-browser.js",
+          "@vue/devtools-api": "https://unpkg.com/@vue/devtools-api@6.6.4/lib/esm/index.js",
+          "gsap": "https://unpkg.com/gsap@3.14.2/index.js"
         }
       }
     </script>
