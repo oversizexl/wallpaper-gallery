@@ -177,19 +177,27 @@ nuanXinProPic/
 │   ├── desktop/    # 电脑壁纸原图
 │   ├── mobile/     # 手机壁纸原图
 │   └── avatar/     # 头像原图
-└── thumbnail/
-    ├── desktop/    # 电脑壁纸缩略图
-    ├── mobile/     # 手机壁纸缩略图
-    └── avatar/     # 头像缩略图
+├── thumbnail/
+│   ├── desktop/    # 电脑壁纸缩略图 (550px, WebP, 85%)
+│   ├── mobile/     # 手机壁纸缩略图 (550px, WebP, 85%)
+│   └── avatar/     # 头像缩略图 (550px, WebP, 85%)
+└── preview/
+    ├── desktop/    # 电脑壁纸预览图 (1920px, WebP, 90%)
+    └── mobile/     # 手机壁纸预览图 (1080px, WebP, 85%)
 ```
 
 ### 图片加载策略
 
-| 场景 | 图片来源 | 说明 |
-| --- | --- | --- |
-| 首页列表 | `thumbnail/` 目录 | WebP 格式缩略图，400px 宽，加载快速 |
-| 今日精选 | `wallpaper/` 目录 | 原图展示，21:9 宽屏比例 |
-| 详情预览 | `wallpaper/` 目录 | 原图，支持下载 |
+| 系列 | 列表展示 | 详情预览 | 优化策略 |
+| --- | --- | --- | --- |
+| 电脑壁纸 | `thumbnail/` 缩略图 (550px) | `wallpaper/` 原图 | 缩略图优先，快速加载 |
+| 手机壁纸 | `preview/` 预览图 (1080px) | `wallpaper/` 原图 | 长屏使用预览图，更清晰 |
+| 头像 | `thumbnail/` 缩略图 (550px) | `wallpaper/` 原图 | 缩略图即可满足需求 |
+| 今日精选 | `wallpaper/` 原图 | - | 首页大图展示 |
+
+**智能加载优先级**：
+- mobile 系列：previewUrl (1080px 预览图) → thumbnailUrl → 原图
+- 其他系列：thumbnailUrl (550px 缩略图) → 原图
 
 **降级策略**：缩略图加载失败时自动切换到 [wsrv.nl](https://wsrv.nl) 代理服务生成缩略图，确保图片始终可用。
 

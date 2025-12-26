@@ -63,8 +63,9 @@ const CONFIG = {
       name: '手机壁纸',
       wallpaperDir: 'wallpaper/mobile',
       thumbnailDir: 'thumbnail/mobile',
+      previewDir: 'preview/mobile', // 预览图目录（mobile 长屏使用预览图）
       outputFile: 'mobile.json',
-      hasPreview: false,
+      hasPreview: true, // 手机壁纸使用预览图（1080px，更清晰）
     },
     avatar: {
       id: 'avatar',

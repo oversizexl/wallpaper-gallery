@@ -42,13 +42,17 @@ const useProxy = ref(false)
 // 定时器引用（用于组件卸载时清理）
 let cacheCheckTimer = null
 
-// 直接使用 JSON 中的 thumbnailUrl，如果加载失败则使用代理服务
+// 根据系列类型智能选择显示URL：
+// - mobile 系列使用 previewUrl（1080px 预览图，更清晰适合长屏）
+// - avatar 和 desktop 使用 thumbnailUrl（550px 缩略图，加载更快）
+// - 如果加载失败则使用代理服务
 const thumbnailUrl = computed(() => {
   if (useProxy.value) {
     // 使用代理服务生成缩略图
     return `${IMAGE_PROXY.BASE_URL}?url=${encodeURIComponent(props.wallpaper.url)}&w=${IMAGE_PROXY.THUMB_WIDTH}&q=${IMAGE_PROXY.THUMB_QUALITY}&output=${IMAGE_PROXY.FORMAT}`
   }
-  return props.wallpaper.thumbnailUrl || props.wallpaper.url
+  // 优先使用 previewUrl（mobile 长屏），其次 thumbnailUrl，最后 url
+  return props.wallpaper.previewUrl || props.wallpaper.thumbnailUrl || props.wallpaper.url
 })
 
 // 检查图片是否已在浏览器缓存中
