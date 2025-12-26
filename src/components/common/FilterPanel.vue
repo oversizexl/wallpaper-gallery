@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import { useDevice } from '@/composables/useDevice'
 import { useViewMode } from '@/composables/useViewMode'
+import { trackFilter } from '@/utils/analytics'
 import { FORMAT_OPTIONS, SORT_OPTIONS } from '@/utils/constants'
 
 const props = defineProps({
@@ -85,14 +86,20 @@ const activeFilterCount = computed(() => {
 
 function handleSortChange(value) {
   emit('update:sortBy', value)
+  // 追踪排序筛选
+  trackFilter('sort', value)
 }
 
 function handleFormatChange(value) {
   emit('update:formatFilter', value)
+  // 追踪格式筛选
+  trackFilter('format', value)
 }
 
 function handleCategoryChange(value) {
   emit('update:categoryFilter', value)
+  // 追踪分类筛选
+  trackFilter('category', value)
 }
 
 function handleReset() {
@@ -121,6 +128,18 @@ function applyFilters() {
   emit('update:formatFilter', tempFormatFilter.value)
   emit('update:categoryFilter', tempCategoryFilter.value)
   setViewMode(tempViewMode.value)
+
+  // 追踪移动端筛选应用
+  if (tempSortBy.value !== props.sortBy) {
+    trackFilter('sort', tempSortBy.value)
+  }
+  if (tempFormatFilter.value !== props.formatFilter) {
+    trackFilter('format', tempFormatFilter.value)
+  }
+  if (tempCategoryFilter.value !== props.categoryFilter) {
+    trackFilter('category', tempCategoryFilter.value)
+  }
+
   closeFilterPopup()
 }
 

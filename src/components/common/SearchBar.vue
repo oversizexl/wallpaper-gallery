@@ -1,6 +1,7 @@
 <script setup>
 import { gsap } from 'gsap'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
+import { trackSearch } from '@/utils/analytics'
 import { highlightText } from '@/utils/format'
 
 const props = defineProps({
@@ -93,6 +94,12 @@ function handleInput(e) {
 function confirmSearch() {
   emit('update:modelValue', localValue.value)
   emit('search', localValue.value)
+
+  // 追踪搜索事件（搜索结果数量在父组件计算，这里先记录搜索行为）
+  if (localValue.value) {
+    trackSearch(localValue.value, suggestions.value.length)
+  }
+
   showSuggestions.value = false
   selectedIndex.value = -1
 }

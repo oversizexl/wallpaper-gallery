@@ -3,6 +3,8 @@ import { gsap } from 'gsap'
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
 import { useDevice } from '@/composables/useDevice'
+import { useWallpaperType } from '@/composables/useWallpaperType'
+import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/analytics'
 import { downloadFile, formatDate, formatFileSize, formatRelativeTime, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/format'
 
 const props = defineProps({
@@ -20,6 +22,9 @@ const emit = defineEmits(['close', 'prev', 'next'])
 
 // 设备检测
 const { isMobile } = useDevice()
+
+// 获取当前系列
+const { currentSeries } = useWallpaperType()
 
 const modalRef = ref(null)
 const contentRef = ref(null)
@@ -63,6 +68,11 @@ const displayUrl = computed(() => {
 // GSAP 入场动画
 watch(() => props.isOpen, async (isOpen) => {
   if (isOpen) {
+    // 追踪壁纸预览事件
+    if (props.wallpaper) {
+      trackWallpaperPreview(props.wallpaper)
+    }
+
     // 保存当前滚动位置
     savedScrollY.value = window.scrollY || window.pageYOffset
 
@@ -234,6 +244,8 @@ async function handleDownload() {
   downloading.value = true
   try {
     await downloadFile(props.wallpaper.url, props.wallpaper.filename)
+    // 追踪下载事件,包含系列信息
+    trackWallpaperDownload(props.wallpaper, currentSeries.value)
   }
   finally {
     downloading.value = false

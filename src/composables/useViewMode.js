@@ -3,6 +3,7 @@
 // ========================================
 
 import { ref } from 'vue'
+import { trackViewModeChange } from '@/utils/analytics'
 import { STORAGE_KEYS } from '@/utils/constants'
 
 // 简单的移动端检测（用于初始默认值）
@@ -30,8 +31,14 @@ const viewMode = ref(getDefaultViewMode())
 
 export function useViewMode() {
   const setViewMode = (mode) => {
+    const oldMode = viewMode.value
     viewMode.value = mode
     localStorage.setItem(STORAGE_KEYS.VIEW_MODE, mode)
+
+    // 追踪视图模式切换事件
+    if (oldMode !== mode) {
+      trackViewModeChange(mode)
+    }
   }
 
   // 视图模式选项

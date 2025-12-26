@@ -1,4 +1,5 @@
 import { computed, ref, watch } from 'vue'
+import { trackSeriesSwitch } from '@/utils/analytics'
 import { ALL_SERIES, DEFAULT_SERIES, DEVICE_SERIES, SERIES_CONFIG, STORAGE_KEYS } from '@/utils/constants'
 
 // 全局状态
@@ -119,6 +120,12 @@ export function useWallpaperType() {
     if (!isSeriesAvailable(series, deviceType.value)) {
       console.warn(`Series ${series} is not available for ${deviceType.value} device`)
       return
+    }
+
+    // 追踪系列切换事件
+    const oldSeries = currentSeries.value
+    if (oldSeries !== series) {
+      trackSeriesSwitch(oldSeries, series)
     }
 
     currentSeries.value = series
