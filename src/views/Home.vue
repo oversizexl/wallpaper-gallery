@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import AnnouncementBanner from '@/components/common/AnnouncementBanner.vue'
 import BackToTop from '@/components/common/BackToTop.vue'
 import FilterPanel from '@/components/common/FilterPanel.vue'
 import TodayPick from '@/components/home/TodayPick.vue'
@@ -97,6 +98,9 @@ onMounted(() => {
 <template>
   <div class="home-page">
     <div class="container">
+      <!-- Announcement Banner -->
+      <AnnouncementBanner />
+
       <!-- Today's Pick - 仅电脑壁纸系列显示 -->
       <TodayPick
         v-if="wallpapers.length > 0 && !loading && currentSeries === 'desktop'"
