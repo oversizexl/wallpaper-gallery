@@ -189,19 +189,12 @@ const displayFilename = computed(() => props.wallpaper ? getDisplayFilename(prop
 
 // 原图分辨率信息（来自 JSON 数据，用于显示原图质量）
 const originalResolution = computed(() => props.wallpaper?.resolution || null)
-// 显示用的尺寸（优先使用原图数据，确保始终显示原图尺寸而非预览图尺寸）
+// 显示用的尺寸（显示当前加载图片的实际尺寸，即预览图尺寸）
 const displayDimensions = computed(() => {
-  // 优先使用 JSON 数据中的原图分辨率
-  if (originalResolution.value?.width && originalResolution.value?.height) {
-    return {
-      width: originalResolution.value.width,
-      height: originalResolution.value.height,
-    }
+  // 使用图片加载后获取的实际尺寸（预览图尺寸）
+  if (actualDimensions.value.width > 0) {
+    return actualDimensions.value
   }
-  // 如果没有原图数据，则使用加载后的实际尺寸
-  // if (actualDimensions.value.width > 0) {
-  //   return actualDimensions.value
-  // }
   return { width: 0, height: 0 }
 })
 
@@ -410,7 +403,7 @@ onUnmounted(() => {
             <div class="info-details" :class="{ 'info-details--compact': isMobile }">
               <!-- 移动端紧凑布局 -->
               <template v-if="isMobile">
-                <!-- 第一行：分辨率 -->
+                <!-- 第一行：预览图分辨率 -->
                 <div v-if="displayDimensions.width > 0" class="detail-row">
                   <div class="detail-item detail-item--highlight">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -418,6 +411,7 @@ onUnmounted(() => {
                       <path d="M8 21h8M12 17v4" />
                     </svg>
                     <span>{{ displayDimensions.width }} × {{ displayDimensions.height }}</span>
+                    <span v-if="hasPreview && !showOriginal" class="detail-label">预览图</span>
                   </div>
                 </div>
                 <!-- 第二行：文件大小 + 日期 -->
@@ -442,13 +436,14 @@ onUnmounted(() => {
 
               <!-- PC端保持原布局 -->
               <template v-else>
-                <!-- 分辨率尺寸 -->
+                <!-- 预览图分辨率尺寸 -->
                 <div v-if="displayDimensions.width > 0" class="detail-item detail-item--highlight">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
                     <path d="M8 21h8M12 17v4" />
                   </svg>
                   <span>{{ displayDimensions.width }} × {{ displayDimensions.height }}</span>
+                  <span v-if="hasPreview && !showOriginal" class="detail-label">预览图</span>
                 </div>
                 <!-- 文件大小 -->
                 <div class="detail-item">
@@ -897,6 +892,16 @@ onUnmounted(() => {
   font-size: $font-size-xs;
   color: var(--color-text-muted);
   margin-left: 2px;
+}
+
+// 预览图标签
+.detail-label {
+  font-size: $font-size-xs;
+  color: var(--color-text-muted);
+  margin-left: $spacing-xs;
+  padding: 2px 6px;
+  background: var(--color-bg-hover);
+  border-radius: $radius-xs;
 }
 
 // 原图信息卡片（突出显示原图质量，吸引用户下载）
