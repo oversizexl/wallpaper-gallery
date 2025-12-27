@@ -27,4 +27,8 @@ export default antfu({
     'auto-imports.d.ts',
     'components.d.ts',
   ],
+  rules: {
+    'no-console': 'off',
+    'no-debugger': 'off',
+  },
 })

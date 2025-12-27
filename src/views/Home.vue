@@ -5,6 +5,7 @@ import AnnouncementBanner from '@/components/common/AnnouncementBanner.vue'
 import BackToTop from '@/components/common/BackToTop.vue'
 import FilterPanel from '@/components/common/FilterPanel.vue'
 import TodayPick from '@/components/home/TodayPick.vue'
+import PortraitWallpaperModal from '@/components/wallpaper/PortraitWallpaperModal.vue'
 import WallpaperGrid from '@/components/wallpaper/WallpaperGrid.vue'
 import WallpaperModal from '@/components/wallpaper/WallpaperModal.vue'
 
@@ -18,6 +19,9 @@ const route = useRoute()
 
 // 系列管理
 const { currentSeries, initFromRoute } = useWallpaperType()
+
+// 是否使用竖屏弹窗（手机壁纸、头像使用竖屏弹窗）
+const usePortraitModal = computed(() => ['mobile', 'avatar'].includes(currentSeries.value))
 
 // Wallpapers
 const { wallpapers, loading, error, total, fetchWallpapers, getPrevWallpaper, getNextWallpaper } = useWallpapers()
@@ -146,8 +150,20 @@ onMounted(() => {
       />
     </div>
 
-    <!-- Modal -->
+    <!-- Modal - 根据系列类型选择弹窗 -->
+    <!-- 横屏弹窗：电脑壁纸 -->
     <WallpaperModal
+      v-if="!usePortraitModal"
+      :wallpaper="currentWallpaper"
+      :is-open="isOpen"
+      @close="close"
+      @prev="handlePrevWallpaper"
+      @next="handleNextWallpaper"
+    />
+
+    <!-- 竖屏弹窗：手机壁纸、头像 -->
+    <PortraitWallpaperModal
+      v-else
       :wallpaper="currentWallpaper"
       :is-open="isOpen"
       @close="close"
