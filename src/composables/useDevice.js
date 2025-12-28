@@ -82,27 +82,28 @@ function detectDeviceByUserAgent() {
 /**
  * 综合判断设备类型
  * 结合 UA 检测、触摸支持、屏幕尺寸等多种因素
+ * 优先使用窗口尺寸判断，UA 作为辅助
  */
 function getDeviceType(windowWidth) {
-  const uaDevice = detectDeviceByUserAgent()
-
-  // 如果 UA 明确识别为移动设备或平板
-  if (uaDevice === DEVICE_TYPES.MOBILE) {
-    return DEVICE_TYPES.MOBILE
-  }
-
-  if (uaDevice === DEVICE_TYPES.TABLET) {
-    // 平板归类为移动端（策略A：因为平板更适合竖屏壁纸）
-    return DEVICE_TYPES.MOBILE
-  }
-
-  // 基于窗口尺寸判断
+  // 优先基于窗口尺寸判断（响应式核心）
   if (windowWidth < BREAKPOINTS.MD) {
     return DEVICE_TYPES.MOBILE
   }
 
-  // 大屏幕但有触摸支持，可能是平板或触屏电脑
-  // 这种情况归类为 desktop（因为屏幕够大）
+  // 大屏幕情况下，结合 UA 判断
+  const uaDevice = detectDeviceByUserAgent()
+
+  // 如果 UA 明确识别为移动设备，但屏幕够大，仍然按桌面处理
+  // 这样可以正确处理开发者工具切换的情况
+  if (windowWidth >= BREAKPOINTS.MD) {
+    return DEVICE_TYPES.DESKTOP
+  }
+
+  // 如果 UA 明确识别为移动设备或平板
+  if (uaDevice === DEVICE_TYPES.MOBILE || uaDevice === DEVICE_TYPES.TABLET) {
+    return DEVICE_TYPES.MOBILE
+  }
+
   return DEVICE_TYPES.DESKTOP
 }
 

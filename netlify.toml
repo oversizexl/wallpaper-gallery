@@ -6,8 +6,10 @@
 # ========================================
 
 [build]
-  # 构建命令（包含自动获取最新 CDN 版本）
+  # 构建命令（包含克隆图床仓库和自动获取最新 CDN 版本）
   command = """
+    # 克隆图床仓库（用于生成数据）
+    git clone --depth 1 https://github.com/IT-NuanxinPro/nuanXinProPic.git nuanXinProPic
     # 获取图床最新 tag
     LATEST_TAG=$(curl -s "https://api.github.com/repos/IT-NuanxinPro/nuanXinProPic/tags" | grep -o '"name": "[^"]*"' | head -1 | cut -d'"' -f4)
     if [ -z "$LATEST_TAG" ]; then LATEST_TAG="v1.0.5"; fi
@@ -61,6 +63,7 @@
 # Deploy Preview 配置（每个 PR 自动生成预览）
 [context.deploy-preview]
   command = """
+    git clone --depth 1 https://github.com/IT-NuanxinPro/nuanXinProPic.git nuanXinProPic
     LATEST_TAG=$(curl -s "https://api.github.com/repos/IT-NuanxinPro/nuanXinProPic/tags" | grep -o '"name": "[^"]*"' | head -1 | cut -d'"' -f4)
     if [ -z "$LATEST_TAG" ]; then LATEST_TAG="v1.0.5"; fi
     sed -i "s/export const CDN_VERSION = '[^']*'/export const CDN_VERSION = '$LATEST_TAG'/" src/utils/constants.js
@@ -73,6 +76,7 @@
 # Branch Deploy 配置（dev 分支）
 [context.branch-deploy]
   command = """
+    git clone --depth 1 https://github.com/IT-NuanxinPro/nuanXinProPic.git nuanXinProPic
     LATEST_TAG=$(curl -s "https://api.github.com/repos/IT-NuanxinPro/nuanXinProPic/tags" | grep -o '"name": "[^"]*"' | head -1 | cut -d'"' -f4)
     if [ -z "$LATEST_TAG" ]; then LATEST_TAG="v1.0.5"; fi
     sed -i "s/export const CDN_VERSION = '[^']*'/export const CDN_VERSION = '$LATEST_TAG'/" src/utils/constants.js

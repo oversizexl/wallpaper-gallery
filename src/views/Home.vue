@@ -1,6 +1,7 @@
 <script setup>
 import { computed, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import DiyAvatarBanner from '@/components/avatar/DiyAvatarBanner.vue'
 import AnnouncementBanner from '@/components/common/AnnouncementBanner.vue'
 import BackToTop from '@/components/common/BackToTop.vue'
 import FilterPanel from '@/components/common/FilterPanel.vue'
@@ -111,6 +112,9 @@ onMounted(() => {
         :wallpapers="wallpapers"
         @select="handleSelectWallpaper"
       />
+
+      <!-- DIY 头像工具入口 - 仅头像系列显示 -->
+      <DiyAvatarBanner v-if="currentSeries === 'avatar'" />
 
       <!-- Filter Panel -->
       <FilterPanel

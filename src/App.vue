@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted } from 'vue'
-import EnvBadge from '@/components/common/EnvBadge.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
 import AppHeader from '@/components/layout/AppHeader.vue'
 
@@ -17,9 +16,6 @@ onMounted(() => {
 
 <template>
   <div class="app">
-    <!-- 测试环境标识 -->
-    <EnvBadge />
-
     <AppHeader />
 
     <main class="main-content">
