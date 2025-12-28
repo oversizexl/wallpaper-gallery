@@ -2,6 +2,7 @@
 import { gsap } from 'gsap'
 import { ref, watch } from 'vue'
 import { useScrollTop } from '@/composables/useScrollTop'
+import { trackBackToTop } from '@/utils/analytics'
 
 const { showButton, scrollToTop } = useScrollTop()
 const buttonRef = ref(null)
@@ -29,6 +30,10 @@ watch(showButton, (show) => {
 })
 
 function handleClick() {
+  // 追踪返回顶部点击，记录当前滚动位置
+  const scrollPosition = window.scrollY || document.documentElement.scrollTop
+  trackBackToTop(scrollPosition)
+
   // 点击动画
   if (buttonRef.value) {
     gsap.to(buttonRef.value, {

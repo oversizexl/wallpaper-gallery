@@ -3,6 +3,7 @@
 // ========================================
 
 import { onMounted, ref, watch } from 'vue'
+import { trackThemeChange } from '@/utils/analytics'
 import { STORAGE_KEYS, THEMES } from '@/utils/constants'
 
 const theme = ref(THEMES.LIGHT)
@@ -31,6 +32,8 @@ export function useTheme() {
   // 切换主题
   const toggleTheme = () => {
     theme.value = theme.value === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT
+    // 追踪主题切换
+    trackThemeChange(theme.value)
   }
 
   // 设置指定主题

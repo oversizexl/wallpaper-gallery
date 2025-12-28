@@ -1,6 +1,7 @@
 <script setup>
 import { gsap } from 'gsap'
 import { computed, onMounted, ref } from 'vue'
+import { trackTodayPickClick } from '@/utils/analytics'
 
 const props = defineProps({
   wallpapers: {
@@ -38,6 +39,8 @@ const imageUrl = computed(() => {
 
 function handleClick() {
   if (todayWallpaper.value) {
+    // 追踪今日精选点击
+    trackTodayPickClick(todayWallpaper.value)
     emit('select', todayWallpaper.value)
   }
 }

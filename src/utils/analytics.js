@@ -123,3 +123,60 @@ export function trackFullscreenToggle(isFullscreen) {
     action: isFullscreen ? 'enter' : 'exit',
   })
 }
+
+/**
+ * 追踪 DIY 头像工具点击事件
+ */
+export function trackDiyAvatarClick() {
+  trackEvent('diy_avatar_click', {
+    source: 'banner',
+    target_url: 'http://diyavatar.061129.xyz/',
+  })
+}
+
+/**
+ * 追踪分页事件
+ * @param {number} page - 页码
+ * @param {string} series - 当前系列
+ * @param {string} category - 当前分类
+ */
+export function trackPagination(page, series, category) {
+  trackEvent('pagination', {
+    page,
+    series,
+    category,
+  })
+}
+
+/**
+ * 追踪今日精选点击事件
+ * @param {object} wallpaper - 壁纸对象
+ */
+export function trackTodayPickClick(wallpaper) {
+  trackEvent('today_pick_click', {
+    filename: wallpaper.filename,
+    category: wallpaper.category,
+  })
+}
+
+/**
+ * 追踪返回顶部点击事件
+ * @param {number} scrollPosition - 点击时的滚动位置
+ */
+export function trackBackToTop(scrollPosition) {
+  trackEvent('back_to_top', {
+    scroll_position: scrollPosition,
+  })
+}
+
+/**
+ * 追踪图片裁剪事件
+ * @param {string} action - 动作（open/complete/cancel）
+ * @param {object} data - 附加数据
+ */
+export function trackImageCrop(action, data = {}) {
+  trackEvent('image_crop', {
+    action,
+    ...data,
+  })
+}

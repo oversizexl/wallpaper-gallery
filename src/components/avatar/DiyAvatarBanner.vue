@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue'
+import { trackDiyAvatarClick } from '@/utils/analytics'
 
 const isVisible = ref(false)
 const isHovered = ref(false)
@@ -12,6 +13,8 @@ onMounted(() => {
 })
 
 function handleClick() {
+  // 追踪点击事件
+  trackDiyAvatarClick()
   window.open('http://diyavatar.061129.xyz/', '_blank')
 }
 </script>

@@ -8,6 +8,7 @@ import Cropper from 'cropperjs'
 import { gsap } from 'gsap'
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
+import { trackImageCrop } from '@/utils/analytics'
 import 'cropperjs/dist/cropper.css'
 
 const props = defineProps({
@@ -42,6 +43,7 @@ const cropper = ref(null)
 const imageLoaded = ref(false)
 const imageError = ref(false)
 const isProcessing = ref(false)
+const isCropCompleted = ref(false) // 标记是否完成裁剪（用于区分取消和完成）
 const selectedRatio = ref('auto')
 const cropInfo = ref({ width: 0, height: 0 })
 const zoomLevel = ref(1)
@@ -356,6 +358,13 @@ async function handleCropAndDownload() {
       )
     })
 
+    // 追踪裁剪完成
+    trackImageCrop('complete', {
+      aspect_ratio: selectedRatio.value,
+      output_size: `${cropInfo.value.width}x${cropInfo.value.height}`,
+    })
+    isCropCompleted.value = true // 标记为完成
+
     const url = URL.createObjectURL(blob)
     const link = document.createElement('a')
     const baseName = props.filename.replace(/\.[^.]+$/, '')
@@ -378,6 +387,10 @@ async function handleCropAndDownload() {
 
 // 关闭弹窗
 function handleClose() {
+  // 如果不是裁剪完成后关闭，则追踪取消事件
+  if (!isCropCompleted.value && imageLoaded.value) {
+    trackImageCrop('cancel')
+  }
   animateOut(() => {
     emit('close')
   })
@@ -420,8 +433,12 @@ function animateOut(callback) {
 // 监听打开状态
 watch(() => props.isOpen, async (isOpen) => {
   if (isOpen) {
+    // 追踪裁剪弹窗打开
+    trackImageCrop('open', { filename: props.filename })
+
     imageLoaded.value = false
     imageError.value = false
+    isCropCompleted.value = false // 重置完成标记
     selectedRatio.value = 'auto'
     zoomLevel.value = 1
     initialZoomRatio.value = 1 // 重置初始缩放比例
