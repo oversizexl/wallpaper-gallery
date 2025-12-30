@@ -66,7 +66,7 @@
 | 图片裁剪 | Cropper.js |
 | 样式 | Sass + postcss-pxtorem (移动端适配) |
 | 路由 | Vue Router 4 |
-| 部署 | GitHub Pages / Netlify / Vercel |
+| 部署 | GitHub Pages (生产) / Vercel (测试) |
 
 ## 🚀 快速开始
 

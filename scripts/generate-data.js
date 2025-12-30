@@ -285,6 +285,11 @@ async function fetchSubdirectoryFromGitHub(seriesConfig, subdir) {
  * 获取图片分辨率信息
  */
 function getImageDimensions(filePath) {
+  // 如果设置了跳过标志,直接返回 null(用于加速 CI 构建)
+  if (process.env.SKIP_IMAGE_DIMENSIONS === 'true') {
+    return null
+  }
+
   try {
     let cmd = 'magick identify'
     try {
