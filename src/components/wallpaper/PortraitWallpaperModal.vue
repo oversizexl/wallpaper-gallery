@@ -9,7 +9,7 @@ import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
 import { useWallpaperType } from '@/composables/useWallpaperType'
 import { trackWallpaperDownload, trackWallpaperPreview } from '@/utils/analytics'
-import { downloadFile, formatDate, formatFileSize, formatRelativeTime, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/format'
+import { downloadFile, formatDate, formatFileSize, getDisplayFilename, getFileExtension, getResolutionLabel } from '@/utils/format'
 import { getWallpaperDownloadCount, getWallpaperViewCount, isSupabaseConfigured, recordDownload, recordView } from '@/utils/supabase'
 
 const props = defineProps({
@@ -204,7 +204,6 @@ const resolution = computed(() => {
 const fileExt = computed(() => props.wallpaper ? getFileExtension(props.wallpaper.filename).toUpperCase() : '')
 const formattedSize = computed(() => props.wallpaper ? formatFileSize(props.wallpaper.size) : '')
 const formattedDate = computed(() => props.wallpaper ? formatDate(props.wallpaper.createdAt) : '')
-const relativeTime = computed(() => props.wallpaper ? formatRelativeTime(props.wallpaper.createdAt) : '')
 const displayFilename = computed(() => props.wallpaper ? getDisplayFilename(props.wallpaper.filename) : '')
 
 // 原图分辨率信息
@@ -388,11 +387,8 @@ onUnmounted(() => {
                     {{ originalResolution.width }} × {{ originalResolution.height }}
                   </span>
                   <span class="detail-item">{{ formattedSize }}</span>
-                  <!-- 移动端显示相对时间（如"3天前"），PC端显示绝对时间 -->
-                  <span class="detail-item detail-date">
-                    <span class="mobile-time">{{ relativeTime }}</span>
-                    <span class="desktop-time">{{ formattedDate }}</span>
-                  </span>
+                  <!-- 移动端和PC端都显示准确日期 -->
+                  <span class="detail-item detail-date">{{ formattedDate }}</span>
                 </div>
               </div>
             </div>
@@ -693,19 +689,6 @@ onUnmounted(() => {
     content: '·';
     margin-left: $spacing-xs;
     color: var(--color-text-muted);
-  }
-}
-
-// 移动端/PC端时间显示切换
-.mobile-time {
-  @include tablet-up {
-    display: none;
-  }
-}
-
-.desktop-time {
-  @include mobile-only {
-    display: none;
   }
 }
 
