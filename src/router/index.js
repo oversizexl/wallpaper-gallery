@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { isMobileDevice } from '@/composables/useDevice'
 import { DEVICE_SERIES } from '@/utils/constants'
 
 // ========================================
@@ -81,43 +82,9 @@ const MAX_REDIRECT_HISTORY = 3
 
 /**
  * 获取当前设备类型
- * 优化：在客户端环境下，确保 window 对象已初始化
  */
 function getDeviceType() {
-  // 确保在客户端环境下执行
-  if (typeof window === 'undefined') {
-    return 'desktop' // 服务端默认返回桌面端
-  }
-
-  // 使用更可靠的设备检测方法
-  // 优先使用 User Agent 检测，因为它不依赖于窗口大小
-  const ua = navigator.userAgent.toLowerCase()
-  const mobileKeywords = [
-    'iphone',
-    'ipod',
-    'android.*mobile',
-    'webos',
-    'blackberry',
-    'iemobile',
-    'opera mini',
-    'windows phone',
-  ]
-
-  // 先检查 UA，如果明确是移动设备，直接返回
-  for (const keyword of mobileKeywords) {
-    if (new RegExp(keyword).test(ua)) {
-      return 'mobile'
-    }
-  }
-
-  // 如果 UA 检测不确定，再使用窗口大小检测
-  // 但需要确保窗口大小已正确初始化
-  const width = window.innerWidth || window.screen?.width || 1024
-  if (width < 768) {
-    return 'mobile'
-  }
-
-  return 'desktop'
+  return isMobileDevice() ? 'mobile' : 'desktop'
 }
 
 /**
@@ -173,16 +140,6 @@ router.beforeEach((to, from, next) => {
   // 更新页面标题
   if (to.meta.title) {
     document.title = to.meta.title
-  }
-
-  // 检测设备类型
-  const deviceType = getDeviceType()
-
-  // 手机端访问电脑端路由时，自动重定向到手机端
-  if (deviceType === 'mobile' && to.meta?.series === 'desktop') {
-    // 手机端不允许访问电脑壁纸，重定向到手机壁纸
-    next({ path: '/mobile', replace: true })
-    return
   }
 
   // 如果直接访问具体系列页面（包括刷新），保存用户选择
