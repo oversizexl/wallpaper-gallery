@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "node scripts/generate-data.js && vite build",
-    "build:prerender": "pnpm build && node scripts/prerender.js",
     "build:vercel": "node scripts/vercel-build.js",
     "preview": "vite preview",
     "generate": "node scripts/generate-data.js",
@@ -31,8 +30,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.7.1",
-    "@prerenderer/renderer-puppeteer": "^1.2.4",
-    "@prerenderer/rollup-plugin": "^0.3.12",
     "@vitejs/plugin-vue": "^6.0.1",
     "@vitest/coverage-v8": "^4.0.16",
     "eslint": "^9.39.2",
@@ -42,7 +39,6 @@
     "javascript-obfuscator": "^5.1.0",
     "lint-staged": "^16.2.7",
     "postcss-pxtorem": "^6.1.0",
-    "puppeteer": "^24.34.0",
     "sass": "^1.97.0",
     "unplugin-auto-import": "^20.3.0",
     "unplugin-vue-components": "^30.0.0",
