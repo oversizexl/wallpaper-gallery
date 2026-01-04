@@ -76,8 +76,7 @@ const router = createRouter({
 const STORAGE_KEY_SERIES = 'wallpaper-gallery-current-series'
 const STORAGE_KEY_USER_CHOICE = 'wallpaper-gallery-user-explicit-choice'
 
-// 导航标记，防止循环
-let isInternalNavigation = false
+// 导航计数，用于循环检测
 let navigationCount = 0
 let lastNavigationTime = 0
 const MAX_NAVIGATIONS_PER_SECOND = 5 // 每秒最大导航次数
@@ -140,62 +139,55 @@ export function clearUserChoice() {
 
 // 路由守卫
 router.beforeEach((to, from, next) => {
-  // 更新页面标题
+  // 1. 更新页面标题
   if (to.meta.title) {
     document.title = to.meta.title
   }
 
-  // 循环检测：检查短时间内的导航次数
+  // 2. 循环检测：检查短时间内的导航次数
   const now = Date.now()
   if (now - lastNavigationTime > NAVIGATION_RESET_TIME) {
-    // 超过重置时间，清零计数器
     navigationCount = 0
   }
   lastNavigationTime = now
   navigationCount++
 
-  // 如果导航次数过多，可能是循环，直接放行避免卡死
   if (navigationCount > MAX_NAVIGATIONS_PER_SECOND) {
     console.warn('[Router] 检测到可能的导航循环，跳过重定向')
-    isInternalNavigation = false
     next()
     return
   }
 
-  // 如果直接访问具体系列页面（包括刷新），保存用户选择
-  if (to.meta?.series) {
-    // 直接访问系列页面时，保存为用户选择（刷新时也会触发）
-    localStorage.setItem(STORAGE_KEY_SERIES, to.meta.series)
-    // 如果是从其他页面导航过来，也记录为明确选择
-    if (from.name) {
-      recordUserChoice(to.meta.series)
-    }
-  }
-
-  // 处理首页的智能重定向
-  if (to.path === '/' && !isInternalNavigation) {
+  // 3. 首页智能重定向（优先处理，避免渲染空状态）
+  if (to.path === '/') {
     const recommendedSeries = getRecommendedSeries()
-    const targetPath = `/${recommendedSeries}`
-
-    // 安全检查：确保目标路径有效且不同于当前路径
-    if (recommendedSeries && targetPath !== from.path) {
-      // 首页访问时，静默重定向到推荐系列
-      // 使用 replace 避免产生历史记录
-      isInternalNavigation = true
-      next({ path: targetPath, replace: true })
-      return
-    }
+    next({ path: `/${recommendedSeries}`, replace: true })
+    return
   }
 
-  // 重置内部导航标记
-  isInternalNavigation = false
+  // 4. 设备兼容性检查：目标系列是否对当前设备可用
+  if (to.meta?.series) {
+    const deviceType = getDeviceType()
+    const targetSeries = to.meta.series
+
+    // 如果目标系列对当前设备不可用，重定向到推荐系列
+    if (!isSeriesAvailableForDevice(targetSeries, deviceType)) {
+      const recommendedSeries = getRecommendedSeries()
+      // 避免重定向到相同路径
+      if (`/${recommendedSeries}` !== to.path) {
+        next({ path: `/${recommendedSeries}`, replace: true })
+        return
+      }
+    }
+
+    // 系列可用，保存用户选择
+    localStorage.setItem(STORAGE_KEY_SERIES, targetSeries)
+    if (from.name) {
+      recordUserChoice(targetSeries)
+    }
+  }
 
   next()
-})
-
-// 导航完成后的清理
-router.afterEach(() => {
-  isInternalNavigation = false
 })
 
 export default router
