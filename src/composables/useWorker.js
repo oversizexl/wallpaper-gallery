@@ -3,6 +3,8 @@
 // ========================================
 
 import { ref, shallowRef } from 'vue'
+import { decodeData } from '@/utils/codec'
+import * as sorting from '@/utils/sorting'
 
 // Worker 实例（单例）
 let workerInstance = null
@@ -14,7 +16,6 @@ const pendingMessages = new Map()
  */
 function getWorker() {
   if (!workerInstance) {
-    // Vite 的 Worker 导入语法
     workerInstance = new Worker(
       new URL('../workers/data-processor.worker.js', import.meta.url),
       { type: 'module' },
@@ -74,7 +75,6 @@ export async function workerDecode(encoded) {
   catch (e) {
     console.warn('Worker decode failed, falling back to main thread:', e)
     // 降级到主线程处理
-    const { decodeData } = await import('@/utils/codec')
     return decodeData(encoded)
   }
 }
@@ -88,7 +88,6 @@ export async function workerDecodeAndParse(encoded) {
   }
   catch (e) {
     console.warn('Worker decodeAndParse failed, falling back to main thread:', e)
-    const { decodeData } = await import('@/utils/codec')
     return JSON.parse(decodeData(encoded))
   }
 }
@@ -103,7 +102,6 @@ export async function workerSort(method, wallpapers, options) {
   try {
     // 如果数据量小，直接在主线程处理更快
     if (wallpapers.length < 100) {
-      const sorting = await import('@/utils/sorting')
       return sorting[method](wallpapers, options)
     }
 
@@ -121,7 +119,6 @@ export async function workerSort(method, wallpapers, options) {
   }
   catch (e) {
     console.warn('Worker sort failed, falling back to main thread:', e)
-    const sorting = await import('@/utils/sorting')
     return sorting[method](wallpapers, options)
   }
 }
