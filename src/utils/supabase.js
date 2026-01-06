@@ -6,15 +6,12 @@ const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
 const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY
 
 /**
- * 获取北京时间的 ISO 字符串
- * @returns {string} 北京时间 ISO 格式字符串
+ * 获取当前时间的 ISO 字符串
+ * timestamptz 类型会自动处理时区，直接发送 UTC 时间即可
+ * @returns {string} ISO 格式字符串
  */
-function getBeijingTimeISO() {
-  const now = new Date()
-  // 获取北京时间（UTC+8）
-  const beijingTime = new Date(now.getTime() + 8 * 60 * 60 * 1000)
-  // 返回 ISO 格式，但替换为 +08:00 时区标识
-  return beijingTime.toISOString().replace('Z', '+08:00')
+function getCurrentTimeISO() {
+  return new Date().toISOString()
 }
 
 /**
@@ -68,7 +65,7 @@ export function recordDownload(wallpaper, series) {
     filename: wallpaper.filename,
     series,
     category: wallpaper.category || null,
-    created_at: getBeijingTimeISO(),
+    created_at: getCurrentTimeISO(),
   })
 }
 
@@ -82,7 +79,7 @@ export function recordView(wallpaper, series) {
     filename: wallpaper.filename,
     series,
     category: wallpaper.category || null,
-    created_at: getBeijingTimeISO(),
+    created_at: getCurrentTimeISO(),
   })
 }
 
