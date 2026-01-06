@@ -278,17 +278,18 @@ export function buildBingUHDUrl(urlbase) {
 }
 
 /**
- * 格式化 Bing 壁纸日期显示
+ * 格式化 Bing 壁纸日期显示（卡片简洁版）
  * @param {string} date - 日期字符串，如 2025-01-01
- * @returns {string} 格式化后的日期，如 1月1日
+ * @returns {string} 格式化后的日期，如 25年1月1日
  */
 export function formatBingDate(date) {
   if (!date)
     return ''
   const d = new Date(date)
+  const year = d.getFullYear() % 100 // 取后两位，如 2025 -> 25
   const month = d.getMonth() + 1
   const day = d.getDate()
-  return `${month}月${day}日`
+  return `${year}年${month}月${day}日`
 }
 
 /**

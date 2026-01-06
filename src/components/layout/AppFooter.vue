@@ -70,6 +70,17 @@ const isDev = import.meta.env.DEV
   max-width: $container-max-width;
   margin: 0 auto;
   padding: 0 $spacing-lg;
+
+  // 2K 屏幕加宽
+  @include screen-2k-up {
+    max-width: $container-max-width-xl;
+    padding: 0 $spacing-2xl;
+  }
+
+  // 4K 屏幕进一步加宽
+  @include screen-4k-up {
+    max-width: $container-max-width-2xl;
+  }
 }
 
 // 统计信息

@@ -518,6 +518,17 @@ function closeSearch() {
   margin: 0 auto;
   padding: $spacing-md $spacing-lg;
   height: $header-height;
+
+  // 2K 屏幕加宽
+  @include screen-2k-up {
+    max-width: $container-max-width-xl;
+    padding: $spacing-md $spacing-2xl;
+  }
+
+  // 4K 屏幕进一步加宽
+  @include screen-4k-up {
+    max-width: $container-max-width-2xl;
+  }
 }
 
 .header-brand {

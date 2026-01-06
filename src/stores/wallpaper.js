@@ -20,6 +20,9 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
   // 分类数据缓存（按需加载）
   const categoryCache = ref({})
 
+  // Bing 壁纸缓存（完整加载后缓存）
+  const bingWallpapersCache = ref(null)
+
   // 当前加载的壁纸列表（合并后的）
   const wallpapers = ref([])
 
@@ -428,6 +431,18 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
       return
     }
 
+    // 检查缓存：如果有缓存的 Bing 数据，直接使用
+    if (!forceRefresh && bingWallpapersCache.value && bingWallpapersCache.value.length > 0) {
+      wallpapers.value = bingWallpapersCache.value
+      currentLoadedSeries.value = seriesId
+      loading.value = false
+      error.value = null
+      errorType.value = null
+      isBackgroundLoading.value = false
+      expectedTotal.value = bingWallpapersCache.value.length
+      return
+    }
+
     // 立即清空旧数据
     wallpapers.value = []
 
@@ -566,6 +581,8 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
       if (currentLoadedSeries.value === seriesId) {
         isBackgroundLoading.value = false
         initialLoadedCount.value = wallpapers.value.length
+        // 保存到缓存，下次切换回来时直接使用
+        bingWallpapersCache.value = [...wallpapers.value]
       }
     }
     catch (e) {
@@ -864,11 +881,16 @@ export const useWallpaperStore = defineStore('wallpaper', () => {
           delete categoryCache.value[key]
         }
       })
+      // 清除 Bing 缓存
+      if (seriesId === 'bing') {
+        bingWallpapersCache.value = null
+      }
     }
     else {
       // 清除所有缓存
       seriesIndexCache.value = {}
       categoryCache.value = {}
+      bingWallpapersCache.value = null
     }
   }
 
