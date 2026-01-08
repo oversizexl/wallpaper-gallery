@@ -7,7 +7,7 @@ import AnimatedNumber from '@/components/common/ui/AnimatedNumber.vue'
 import { useDevice } from '@/composables/useDevice'
 import { useViewMode } from '@/composables/useViewMode'
 import { trackFilter } from '@/utils/analytics'
-import { FORMAT_OPTIONS, SORT_OPTIONS } from '@/utils/constants'
+import { FORMAT_OPTIONS, RESOLUTION_OPTIONS, SORT_OPTIONS } from '@/utils/constants'
 
 const props = defineProps({
   sortBy: {
@@ -15,6 +15,10 @@ const props = defineProps({
     default: 'newest',
   },
   formatFilter: {
+    type: String,
+    default: 'all',
+  },
+  resolutionFilter: {
     type: String,
     default: 'all',
   },
@@ -59,7 +63,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['update:sortBy', 'update:formatFilter', 'update:categoryFilter', 'update:subcategoryFilter', 'reset'])
+const emit = defineEmits(['update:sortBy', 'update:formatFilter', 'update:resolutionFilter', 'update:categoryFilter', 'update:subcategoryFilter', 'reset'])
 
 const { isMobileOrTablet } = useDevice()
 const { viewMode, setViewMode } = useViewMode()
@@ -74,7 +78,7 @@ const tempFormatFilter = ref(props.formatFilter)
 
 // 是否有激活的筛选条件
 const hasActiveFilters = computed(() => {
-  return props.formatFilter !== 'all' || props.categoryFilter !== 'all' || props.subcategoryFilter !== 'all' || props.sortBy !== 'newest'
+  return props.formatFilter !== 'all' || props.resolutionFilter !== 'all' || props.categoryFilter !== 'all' || props.subcategoryFilter !== 'all' || props.sortBy !== 'newest'
 })
 
 // 视图模式滑动指示器位置
@@ -131,6 +135,11 @@ function handleFormatChange(value) {
   trackFilter('format', value)
 }
 
+function handleResolutionChange(value) {
+  emit('update:resolutionFilter', value)
+  trackFilter('resolution', value)
+}
+
 // 移动端分类变化处理（来自 MobileCategoryDrawer，不重置子分类，由抽屉组件自行处理）
 function handleCategoryChange(value) {
   emit('update:categoryFilter', value)
@@ -160,6 +169,7 @@ function handleSubcategoryUpdate(value) {
 function handleReset() {
   emit('update:sortBy', 'newest')
   emit('update:formatFilter', 'all')
+  emit('update:resolutionFilter', 'all')
   emit('update:categoryFilter', 'all')
   emit('update:subcategoryFilter', 'all')
   emit('reset')
@@ -319,6 +329,25 @@ function resetFilters() {
         >
           <el-option
             v-for="option in FORMAT_OPTIONS"
+            :key="option.value"
+            :label="option.label"
+            :value="option.value"
+          />
+        </el-select>
+      </div>
+
+      <!-- Resolution Filter (仅电脑壁纸系列显示) -->
+      <div v-if="currentSeries === 'desktop'" class="filter-item">
+        <span class="filter-label">分辨率</span>
+        <el-select
+          :model-value="resolutionFilter"
+          placeholder="全部分辨率"
+          size="default"
+          style="width: 140px"
+          @change="handleResolutionChange"
+        >
+          <el-option
+            v-for="option in RESOLUTION_OPTIONS"
             :key="option.value"
             :label="option.label"
             :value="option.value"

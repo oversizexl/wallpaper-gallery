@@ -125,6 +125,7 @@ async function loadSeriesData(series) {
     // 重置分类筛选（不同系列的分类不同）
     filterStore.categoryFilter = 'all'
     filterStore.subcategoryFilter = 'all'
+    filterStore.resolutionFilter = 'all'
     filterStore.clearCategoryCache()
 
     // 设置默认排序方式
@@ -241,6 +242,7 @@ onMounted(async () => {
       <FilterPanel
         v-model:sort-by="filterStore.sortBy"
         v-model:format-filter="filterStore.formatFilter"
+        v-model:resolution-filter="filterStore.resolutionFilter"
         v-model:category-filter="filterStore.categoryFilter"
         v-model:subcategory-filter="filterStore.subcategoryFilter"
         :category-options="categoryOptions"

@@ -164,6 +164,16 @@ export const RESOLUTION_THRESHOLDS = [
   { minWidth: 0, label: '标清', type: 'secondary' },
 ]
 
+// 分辨率筛选选项（基于 RESOLUTION_THRESHOLDS 生成，用于 FilterPanel）
+export const RESOLUTION_OPTIONS = [
+  { value: 'all', label: '全部分辨率' },
+  ...RESOLUTION_THRESHOLDS.map(t => ({
+    value: t.label,
+    label: t.label,
+    minWidth: t.minWidth,
+  })),
+]
+
 // 主题
 export const THEMES = {
   LIGHT: 'light',

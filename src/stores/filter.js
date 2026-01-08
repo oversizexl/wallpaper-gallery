@@ -4,7 +4,7 @@
 
 import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'
-import { STORAGE_KEYS } from '@/utils/constants'
+import { RESOLUTION_THRESHOLDS, STORAGE_KEYS } from '@/utils/constants'
 import { debounce } from '@/utils/format'
 import { sortByDate, sortByDownloads, sortByName, sortByPopularity, sortBySize, sortByViews } from '@/utils/sorting'
 import { usePopularityStore } from './popularity'
@@ -23,6 +23,9 @@ export const useFilterStore = defineStore('filter', () => {
 
   // 格式筛选
   const formatFilter = ref('all')
+
+  // 分辨率筛选（仅 PC 端电脑壁纸系列）
+  const resolutionFilter = ref('all')
 
   // 分类筛选（一级分类）
   const categoryFilter = ref(localStorage.getItem(STORAGE_KEYS.CATEGORY) || 'all')
@@ -170,6 +173,19 @@ export const useFilterStore = defineStore('filter', () => {
       )
     }
 
+    // 分辨率过滤（精确匹配：根据长边判断所属分辨率等级）
+    if (resolutionFilter.value !== 'all') {
+      result = result.filter((w) => {
+        const maxSide = Math.max(w.resolution?.width || 0, w.resolution?.height || 0)
+        // 找到壁纸所属的分辨率等级（精确匹配区间）
+        const matchedThreshold = RESOLUTION_THRESHOLDS.find((t, i) => {
+          const upperBound = i > 0 ? RESOLUTION_THRESHOLDS[i - 1].minWidth : Number.POSITIVE_INFINITY
+          return maxSide >= t.minWidth && maxSide < upperBound
+        })
+        return matchedThreshold?.label === resolutionFilter.value
+      })
+    }
+
     // 一级分类过滤
     if (categoryFilter.value !== 'all') {
       result = result.filter(w =>
@@ -237,6 +253,7 @@ export const useFilterStore = defineStore('filter', () => {
   function hasActiveFilters() {
     return debouncedQuery.value
       || formatFilter.value !== 'all'
+      || resolutionFilter.value !== 'all'
       || categoryFilter.value !== 'all'
       || subcategoryFilter.value !== 'all'
   }
@@ -248,6 +265,7 @@ export const useFilterStore = defineStore('filter', () => {
     searchQuery.value = ''
     debouncedQuery.value = ''
     formatFilter.value = 'all'
+    resolutionFilter.value = 'all'
     categoryFilter.value = 'all'
     subcategoryFilter.value = 'all'
     sortBy.value = defaultSort
@@ -283,6 +301,7 @@ export const useFilterStore = defineStore('filter', () => {
     debouncedQuery,
     sortBy,
     formatFilter,
+    resolutionFilter,
     categoryFilter,
     subcategoryFilter,
     // Helpers
