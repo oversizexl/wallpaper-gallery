@@ -67,22 +67,38 @@ jobs:
           path: nuanXinProPic
           fetch-depth: 1  # 只需最新版本，时间戳从备份文件恢复
 
-      # 性能优化: 不再恢复文件时间戳
-      # generate-data.js 直接从 timestamps-backup-all.txt 读取时间戳,无需恢复文件 mtime
-      # 这避免了 touch 数百/数千个文件,显著提升构建速度
-      - name: Verify timestamp backup file
+ 
+      - name: Restore file timestamps from backup
         run: |
           cd nuanXinProPic
 
+          # 优先使用完整备份文件（包含所有三个系列）
           if [ -f "timestamps-backup-all.txt" ]; then
-            TOTAL=$(wc -l < timestamps-backup-all.txt | tr -d ' ')
-            echo "✅ Found timestamps-backup-all.txt"
-            echo "📊 Total images with timestamp records: $TOTAL"
-            echo "ℹ️  generate-data.js will read timestamps from this file directly"
+            echo "✅ Found timestamps-backup-all.txt, restoring all file timestamps..."
+
+            # 使用完整备份文件恢复时间戳
+            chmod +x scripts/restore-timestamps.sh
+            BACKUP_FILE=timestamps-backup-all.txt ./scripts/restore-timestamps.sh
+
+            echo "✅ All file timestamps restored from backup"
+          elif [ -f "timestamps-backup.txt" ]; then
+            echo "✅ Found timestamps-backup.txt, restoring desktop file timestamps..."
+
+            # 使用旧的备份文件（仅 desktop）
+            chmod +x scripts/restore-timestamps.sh
+            ./scripts/restore-timestamps.sh
+
+            echo "✅ Desktop file timestamps restored from backup"
           else
-            echo "⚠️ Warning: timestamps-backup-all.txt not found"
-            echo "ℹ️  generate-data.js will use file system mtime (not recommended)"
+            echo "⚠️ No timestamps backup file found, skipping timestamp restoration"
           fi
+
+          # 验证：显示几个文件的时间
+          echo "📅 Sample file timestamps:"
+          echo "Desktop:"
+          ls -lh wallpaper/desktop/动漫/二次元/ 2>/dev/null | head -3 || echo "Desktop directory not found"
+          echo "Mobile:"
+          ls -lh wallpaper/mobile/动漫/ 2>/dev/null | head -3 || echo "Mobile directory not found"
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
