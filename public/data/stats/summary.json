@@ -1,10 +1,10 @@
 {
-  "exportedAt": "2026-03-02T18:05:21.075Z",
+  "exportedAt": "2026-03-03T18:07:12.841Z",
   "series": {
     "desktop": {
       "count": 472,
-      "totalViews": 7510,
-      "totalDownloads": 2279
+      "totalViews": 7542,
+      "totalDownloads": 2280
     },
     "mobile": {
       "count": 422,
@@ -17,8 +17,8 @@
       "totalDownloads": 301
     },
     "bing": {
-      "count": 175,
-      "totalViews": 509,
+      "count": 177,
+      "totalViews": 512,
       "totalDownloads": 136
     }
   }
