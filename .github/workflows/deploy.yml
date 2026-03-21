@@ -36,7 +36,7 @@ jobs:
       - name: Update CDN version in constants.js
         run: |
           CDN_VERSION="${{ steps.cdn_version.outputs.version }}"
-          sed -i "s/export const CDN_VERSION = '[^']*'/export const CDN_VERSION = '$CDN_VERSION'/" src/utils/constants.js
+          sed -i "s/export const CDN_VERSION = '[^']*'/export const CDN_VERSION = '$CDN_VERSION'/" src/utils/config/constants.js
           echo "📦 Updated constants.js to: $CDN_VERSION"
 
       # 3. 克隆图床仓库数据 (利用 GitHub 内部网络，比 Cloudflare 脚本快得多)
