@@ -1,913 +1,123 @@
 {
-  "generatedAt": "2026-05-06T19:10:40.174Z",
+  "generatedAt": "2026-05-07T19:16:27.779Z",
   "series": "all",
-  "total": 2055,
+  "total": 9,
   "tags": [
     {
-      "tag": "人像",
-      "score": 8797,
-      "views": 8388,
-      "downloads": 2248,
-      "wallpaperCount": 410,
+      "tag": "白色小动物",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
       "series": [
-        "desktop",
-        "mobile",
-        "avatar"
+        "mobile"
       ],
       "topWallpapers": [
-        "129233_全面屏壁纸.jpeg",
-        "20260424_165548.png",
-        "20260424165339.png",
-        "20260408165518.jpeg",
-        "吊带-森林-绿植.png"
-      ]
-    },
-    {
-      "tag": "风景",
-      "score": 6136,
-      "views": 5311,
-      "downloads": 2156,
-      "wallpaperCount": 177,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar",
-        "video"
-      ],
-      "topWallpapers": [
-        "云层-地球-夜景.png",
-        "20260406201625.jpeg",
-        "云海-城堡-天空.png",
-        "雪山湖泊晚霞.jpg",
-        "简约风_日落.jpg"
+        "20260408170413.jpeg"
       ]
     },
     {
       "tag": "插画",
-      "score": 5026,
-      "views": 4375,
-      "downloads": 1558,
-      "wallpaperCount": 258,
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
       "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "20260408165518.jpeg",
-        "20260406201625.jpeg",
-        "6865_1714297702.jpg",
-        "20260408170413.jpeg",
-        "中国风-书法艺术.png"
-      ]
-    },
-    {
-      "tag": "动漫",
-      "score": 4324,
-      "views": 4515,
-      "downloads": 1463,
-      "wallpaperCount": 304,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar",
-        "video"
-      ],
-      "topWallpapers": [
-        "剑客-动漫角色.png",
-        "雪夜遛狗场景.png",
-        "名侦探柯南-嘘-神秘感.png",
-        "云层飞行-天空背景.png",
-        "卧室-夜晚-小新.png"
-      ]
-    },
-    {
-      "tag": "魅力",
-      "score": 3742,
-      "views": 3688,
-      "downloads": 845,
-      "wallpaperCount": 68,
-      "series": [
-        "desktop",
         "mobile"
       ],
       "topWallpapers": [
-        "129233_全面屏壁纸.jpeg",
-        "20260424165339.png",
-        "包臀裙-壁纸-室内.png",
-        "丝袜-壁纸-室内.png",
-        "girl.png"
+        "20260408170413.jpeg"
       ]
     },
     {
-      "tag": "清新",
-      "score": 2627,
-      "views": 2228,
-      "downloads": 675,
-      "wallpaperCount": 93,
+      "tag": "城市绿化",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
       "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "20260424_165548.png",
-        "吊带-森林-绿植.png",
-        "20260408171457.jpeg",
-        "20260406201611.jpeg",
-        "20260424165234.jpeg"
-      ]
-    },
-    {
-      "tag": "氛围感",
-      "score": 1770,
-      "views": 1657,
-      "downloads": 537,
-      "wallpaperCount": 130,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "20260424_165556.jpeg",
-        "休闲-地毯-室内.png",
-        "侧颜-壁纸-女性.png",
-        "Ios-双马尾.png",
-        "1_1774514885.jpg"
-      ]
-    },
-    {
-      "tag": "创意",
-      "score": 1627,
-      "views": 1506,
-      "downloads": 530,
-      "wallpaperCount": 113,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "6865_1714297702.jpg",
-        "8k-人物.png",
-        "城市夜景_东京塔雨夜_室内视角.jpg",
-        "image_神图壁纸_锁屏壁纸_手机壁纸_壁..._17.png",
-        "李佳航_请坐手势.png"
-      ]
-    },
-    {
-      "tag": "二次元",
-      "score": 1589,
-      "views": 1713,
-      "downloads": 526,
-      "wallpaperCount": 115,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "云层飞行-天空背景.png",
-        "打工人.png",
-        "二次元风格的未来感少女形象.png",
-        "美少女-大长腿.png",
-        "彩虹发色的梦幻少女仰望星空.png"
-      ]
-    },
-    {
-      "tag": "长发",
-      "score": 1567,
-      "views": 1133,
-      "downloads": 323,
-      "wallpaperCount": 42,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "20260424_165548.png",
-        "吊带-森林-绿植.png",
-        "20260424_165556.jpeg",
-        "20260408170344.jpeg",
-        "微信图片_20260310202300_667_4.jpg"
-      ]
-    },
-    {
-      "tag": "日落",
-      "score": 1269,
-      "views": 807,
-      "downloads": 430,
-      "wallpaperCount": 33,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "20260406201625.jpeg",
-        "简约风_日落.jpg",
-        "20260420203706.jpeg",
-        "20260406200329.jpeg",
-        "20260406201149.jpeg"
-      ]
-    },
-    {
-      "tag": "雪山",
-      "score": 1261,
-      "views": 1162,
-      "downloads": 482,
-      "wallpaperCount": 27,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "雪山湖泊晚霞.jpg",
-        "雪山_日照金山.jpg",
-        "雪山之巅_晨曦.png",
-        "20260406200436.jpeg",
-        "1_1690290878.jpg"
-      ]
-    },
-    {
-      "tag": "星空",
-      "score": 1185,
-      "views": 1074,
-      "downloads": 409,
-      "wallpaperCount": 30,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "云层-地球-夜景.png",
-        "20260424170100.png",
-        "星空湖面倒映地球日出奇景.png",
-        "1_1690290878.jpg",
-        "image_wallpaper话题_ipad..._0.png"
-      ]
-    },
-    {
-      "tag": "国风",
-      "score": 1005,
-      "views": 982,
-      "downloads": 289,
-      "wallpaperCount": 62,
-      "series": [
-        "desktop",
         "mobile"
       ],
       "topWallpapers": [
-        "cg美女-佳人.png",
-        "20260408163824.jpeg",
-        "中式古装-光影美女.png",
-        "20260424165827.jpeg",
-        "20260406200642.jpeg"
+        "创意设计-商业空间.png"
       ]
     },
     {
-      "tag": "少女",
-      "score": 973,
-      "views": 784,
-      "downloads": 254,
-      "wallpaperCount": 53,
+      "tag": "风景",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
       "series": [
-        "desktop",
-        "mobile",
-        "avatar"
+        "mobile"
       ],
       "topWallpapers": [
-        "20260406201611.jpeg",
-        "20260406200537.png",
-        "Ios-户外-清新.png",
-        "少女-少女清纯.png",
-        "夏日-度假-棕榈树.png"
+        "创意设计-商业空间.png"
       ]
     },
     {
-      "tag": "海滨",
-      "score": 925,
-      "views": 730,
-      "downloads": 287,
-      "wallpaperCount": 27,
+      "tag": "建筑",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
       "series": [
-        "desktop",
-        "mobile",
-        "avatar"
+        "mobile"
       ],
       "topWallpapers": [
-        "房屋-树木-海边.png",
-        "咖啡屋-夏日-插画.png",
-        "海边_杂货铺.jpg",
-        "20260408171714.jpeg",
-        "image_高级全面屏4k超清手机壁纸_景深..._10.png"
+        "创意设计-商业空间.png"
+      ]
+    },
+    {
+      "tag": "快乐玩耍",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170413.jpeg"
       ]
     },
     {
       "tag": "萌宠",
-      "score": 901,
-      "views": 763,
-      "downloads": 281,
-      "wallpaperCount": 69,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar",
-        "video"
-      ],
-      "topWallpapers": [
-        "20260408170413.jpeg",
-        "戴耳机.jpg",
-        "晴空-治愈-猫.png",
-        "雨中绿意小猫.jpeg",
-        "image_桌面壁纸话题_电脑壁纸话题_意境..._1.png"
-      ]
-    },
-    {
-      "tag": "漫画风格",
-      "score": 887,
-      "views": 731,
-      "downloads": 191,
-      "wallpaperCount": 3,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "129233_全面屏壁纸.jpeg",
-        "20260408165518.jpeg",
-        "image_神图壁纸_锁屏壁纸_手机壁纸_壁..._17.png"
-      ]
-    },
-    {
-      "tag": "丝袜",
-      "score": 862,
-      "views": 902,
-      "downloads": 179,
-      "wallpaperCount": 3,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "129233_全面屏壁纸.jpeg",
-        "丝袜-壁纸-室内.png",
-        "girl.png"
-      ]
-    },
-    {
-      "tag": "文字",
-      "score": 853,
-      "views": 894,
-      "downloads": 313,
-      "wallpaperCount": 50,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "中国风-书法艺术.png",
-        "程序员日常_代码没写完.png",
-        "中国风-传统纹样.png",
-        "20260406200458.jpeg",
-        "中文语录-励志语录.png"
-      ]
-    },
-    {
-      "tag": "夜景",
-      "score": 838,
-      "views": 786,
-      "downloads": 276,
-      "wallpaperCount": 23,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "云层-地球-夜景.png",
-        "云层-春花-暖色调.png",
-        "夜晚-夜景-山.png",
-        "壁纸-夜景-御姐.png",
-        "蝴蝶忍-鬼灭之刃.png"
-      ]
-    },
-    {
-      "tag": "IP形象",
-      "score": 818,
-      "views": 770,
-      "downloads": 267,
-      "wallpaperCount": 88,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar",
-        "video"
-      ],
-      "topWallpapers": [
-        "人生格言-励志文案.png",
-        "20260406200517.png",
-        "光影倒影-可爱小狗.png",
-        "Chiikawa-冬季.png",
-        "Chiikawa.png"
-      ]
-    },
-    {
-      "tag": "阳光",
-      "score": 805,
-      "views": 471,
-      "downloads": 218,
-      "wallpaperCount": 14,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "吊带-森林-绿植.png",
-        "20260406201611.jpeg",
-        "休闲-地毯-室内.png",
-        "20260424170100.png",
-        "20260408163908.jpeg"
-      ]
-    },
-    {
-      "tag": "蜡笔小新",
-      "score": 744,
-      "views": 705,
-      "downloads": 309,
-      "wallpaperCount": 42,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "雪夜遛狗场景.png",
-        "卧室-夜晚-小新.png",
-        "image_可爱搞怪卡通手机壁纸简约文字壁纸..._1.png",
-        "小新与小白_海边睡觉.png",
-        "荷叶休息.jpg"
-      ]
-    },
-    {
-      "tag": "场景",
-      "score": 719,
-      "views": 728,
-      "downloads": 246,
-      "wallpaperCount": 29,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "书房-书桌.png",
-        "吊床-宁静环境.png",
-        "扇子的艺术, 艺术, 视觉艺术, 房间.png",
-        "安静氛围-森林.png",
-        "世嘉创世纪.png"
-      ]
-    },
-    {
-      "tag": "紧身衣",
-      "score": 680,
-      "views": 621,
-      "downloads": 141,
-      "wallpaperCount": 4,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "129233_全面屏壁纸.jpeg",
-        "城市景观-壁纸.png",
-        "优雅-坐姿-壁纸.png",
-        "image_高级3D景深全屏壁纸张张质感拉满..._5.png"
-      ]
-    },
-    {
-      "tag": "花卉",
-      "score": 672,
-      "views": 514,
-      "downloads": 202,
-      "wallpaperCount": 20,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260424165234.jpeg",
-        "云层-春花-暖色调.png",
-        "1_1744545188.jpg",
-        "20260424165858.jpeg",
-        "20260406201201.jpeg"
-      ]
-    },
-    {
-      "tag": "蓝天",
-      "score": 670,
-      "views": 518,
-      "downloads": 145,
-      "wallpaperCount": 11,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "20260424165339.png",
-        "20260406201611.jpeg",
-        "20260406200537.png",
-        "Ios-户外-清新.png",
-        "晴天-蓝天白云.png"
-      ]
-    },
-    {
-      "tag": "黑丝",
-      "score": 644,
-      "views": 528,
-      "downloads": 122,
-      "wallpaperCount": 12,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "包臀裙-壁纸-室内.png",
-        "20260408164632.jpeg",
-        "城市景观-壁纸.png",
-        "壁纸-女神-室内.png",
-        "女性-御姐-性感.png"
-      ]
-    },
-    {
-      "tag": "卡通",
-      "score": 639,
-      "views": 547,
-      "downloads": 166,
-      "wallpaperCount": 49,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "微信图片_20260310202250_654_4.jpg",
-        "20260406200517.png",
-        "image_可爱搞怪卡通手机壁纸简约文字壁纸..._0.png",
-        "20260406201217.jpeg",
-        "image_桌面壁纸话题_电脑壁纸话题_意境..._3.png"
-      ]
-    },
-    {
-      "tag": "梦幻",
-      "score": 618,
-      "views": 457,
-      "downloads": 174,
-      "wallpaperCount": 24,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "6865_1714297702.jpg",
-        "20260424170100.png",
-        "二次元-动漫女孩.png",
-        "image_高级全面屏4k超清手机壁纸_景深..._25.png",
-        "原神-甘雨.png"
-      ]
-    },
-    {
-      "tag": "甜美",
-      "score": 600,
-      "views": 591,
-      "downloads": 101,
-      "wallpaperCount": 34,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "20260424_165548.png",
-        "卧室背景-古风甜妹.png",
-        "古风甜妹.png",
-        "20260408163808.jpeg",
-        "20260406200444.jpeg"
-      ]
-    },
-    {
-      "tag": "政治",
-      "score": 550,
-      "views": 530,
-      "downloads": 219,
-      "wallpaperCount": 11,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "共产主义接班人.png",
-        "励志语录-历史人物.png",
-        "中华人民共和国-五角星.png",
-        "20260406201304.jpeg",
-        "天安门_黄昏_道路曲折前途光明.png"
-      ]
-    },
-    {
-      "tag": "湖泊",
-      "score": 520,
-      "views": 447,
-      "downloads": 172,
-      "wallpaperCount": 15,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "孤树-山峰-山脉.png",
-        "20260406200329.jpeg",
-        "夜晚-夜景-山.png",
-        "倒影-夕阳-宁静.png",
-        "倒影-天空-山川湖泊.png"
-      ]
-    },
-    {
-      "tag": "城市",
-      "score": 470,
-      "views": 258,
-      "downloads": 164,
-      "wallpaperCount": 11,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "20260406201625.jpeg",
-        "img1.wallspic.com-gong_lu_lu_xing-yun_shu-jie-tu_lu-xing_zhi-3840x2400.jpg",
-        "国徽建筑_国旗飘扬.jpg",
-        "品红色-城市-天空.png",
-        "候鸟-冬季-历史建筑.png"
-      ]
-    },
-    {
-      "tag": "天空",
-      "score": 469,
-      "views": 440,
-      "downloads": 209,
-      "wallpaperCount": 6,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "云海-城堡-天空.png",
-        "树影天空_夏日云海_宁静.jpg",
-        "山-山景.png",
-        "云端.jpg",
-        "image_风景壁纸话题_每日更新壁纸话题_..._7.png"
-      ]
-    },
-    {
-      "tag": "猫咪",
-      "score": 469,
-      "views": 394,
-      "downloads": 185,
-      "wallpaperCount": 33,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "戴耳机.jpg",
-        "晴空-治愈-猫.png",
-        "雨中绿意小猫.jpeg",
-        "image_桌面壁纸话题_电脑壁纸话题_意境..._1.png",
-        "海-猫猫.png"
-      ]
-    },
-    {
-      "tag": "影视",
-      "score": 458,
-      "views": 511,
-      "downloads": 157,
-      "wallpaperCount": 35,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "派大星_日落海滩.png",
-        "微信图片_20260310202250_654_4.jpg",
-        "主角团.jpg",
-        "image_可爱搞怪卡通手机壁纸简约文字壁纸..._0.png",
-        "朱迪尼克.png"
-      ]
-    },
-    {
-      "tag": "背影",
-      "score": 457,
-      "views": 325,
-      "downloads": 99,
-      "wallpaperCount": 33,
-      "series": [
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "20260424_165556.jpeg",
-        "休闲-地毯-室内.png",
-        "车窗边夕阳下的少年背影.png",
-        "image_高级3D景深全屏壁纸张张质感拉满..._31.png",
-        "image_向往自由的女生头像话题_氛围感头..._3.png"
-      ]
-    },
-    {
-      "tag": "优雅",
-      "score": 439,
-      "views": 601,
-      "downloads": 130,
-      "wallpaperCount": 12,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "丝袜-壁纸-室内.png",
-        "优雅姿势-光影美女.png",
-        "壁纸-御姐-手机.png",
-        "中式建筑-低胸裙.png",
-        "、玫瑰少女.png"
-      ]
-    },
-    {
-      "tag": "写真",
-      "score": 405,
-      "views": 392,
-      "downloads": 65,
-      "wallpaperCount": 5,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260424_165548.png",
-        "夏日校园-户外写真.png",
-        "清纯少女_夏日写真.png",
-        "侧颜-写真-冷峻.png",
-        "兔耳帽-写真-冬季.png"
-      ]
-    },
-    {
-      "tag": "中国风",
-      "score": 375,
-      "views": 335,
-      "downloads": 119,
-      "wallpaperCount": 10,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "中国风-书法艺术.png",
-        "20260424170135.png",
-        "中国风-传统纹样.png",
-        "书法-国庆-大气.png",
-        "20260406200458.jpeg"
-      ]
-    },
-    {
-      "tag": "室内",
-      "score": 375,
-      "views": 358,
-      "downloads": 71,
-      "wallpaperCount": 6,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260424_165556.jpeg",
-        "室内纯欲女生.jpg",
-        "Ios-书架-室内.png",
-        "image_iOS26苹果系统空间景深壁纸效..._13.png",
-        "20260406201428.jpeg"
-      ]
-    },
-    {
-      "tag": "时尚",
-      "score": 369,
-      "views": 284,
-      "downloads": 89,
-      "wallpaperCount": 12,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "girl.png",
-        "20260408170344.jpeg",
-        "OL穿搭.png",
-        "时代少年团合照.png",
-        "漆皮靴酷飒少女天台闲坐.png"
-      ]
-    },
-    {
-      "tag": "小屋",
-      "score": 364,
-      "views": 257,
-      "downloads": 96,
-      "wallpaperCount": 3,
-      "series": [
-        "desktop"
-      ],
-      "topWallpapers": [
-        "房屋-树木-海边.png",
-        "咖啡屋-夏日-插画.png",
-        "image_桌面壁纸话题_电脑壁纸话题_意境..._5.png"
-      ]
-    },
-    {
-      "tag": "艺术",
-      "score": 363,
-      "views": 285,
-      "downloads": 113,
-      "wallpaperCount": 6,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "6865_1714297702.jpg",
-        "8k-人物.png",
-        "扇子的艺术, 艺术, 视觉艺术, 房间.png",
-        "白发少年画室场景.jpg",
-        "image_神图壁纸_锁屏壁纸_壁纸_该换壁..._20.png"
-      ]
-    },
-    {
-      "tag": "户外",
-      "score": 343,
-      "views": 356,
-      "downloads": 95,
-      "wallpaperCount": 25,
-      "series": [
-        "desktop",
-        "mobile",
-        "avatar"
-      ],
-      "topWallpapers": [
-        "小清新-户外-拍照.png",
-        "夏日-惊讶甜妹-户外.png",
-        "image_神图壁纸_锁屏壁纸_该换壁纸了_..._20.png",
-        "户外-活力少女-清新.png",
-        "20260406201217.jpeg"
-      ]
-    },
-    {
-      "tag": "云海",
-      "score": 341,
-      "views": 314,
-      "downloads": 158,
-      "wallpaperCount": 4,
-      "series": [
-        "desktop",
-        "mobile"
-      ],
-      "topWallpapers": [
-        "云海-城堡-天空.png",
-        "img3.wallspic.com-duo_shan_de_de_mao-shan_mai-dong_tian-bing_chuan_de_mao-gao_de-4878x3252.jpg",
-        "云层-云景-夜晚.png",
-        "image_神图壁纸_锁屏壁纸_手机壁纸_壁..._21.png"
-      ]
-    },
-    {
-      "tag": "地球",
-      "score": 313,
-      "views": 344,
-      "downloads": 139,
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
       "wallpaperCount": 1,
       "series": [
-        "desktop"
+        "mobile"
       ],
       "topWallpapers": [
-        "云层-地球-夜景.png"
+        "20260408170413.jpeg"
       ]
     },
     {
-      "tag": "云层",
-      "score": 313,
-      "views": 344,
-      "downloads": 139,
+      "tag": "室内景观",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
       "wallpaperCount": 1,
       "series": [
-        "desktop"
+        "mobile"
       ],
       "topWallpapers": [
-        "云层-地球-夜景.png"
+        "创意设计-商业空间.png"
+      ]
+    },
+    {
+      "tag": "现代建筑",
+      "score": 1,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "创意设计-商业空间.png"
       ]
     }
   ]
