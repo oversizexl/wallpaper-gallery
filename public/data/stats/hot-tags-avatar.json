@@ -1,6 +1,135 @@
 {
-  "generatedAt": "2026-06-21T19:03:34.192Z",
+  "generatedAt": "2026-06-22T20:19:55.479Z",
   "series": "avatar",
-  "total": 0,
-  "tags": []
+  "total": 8,
+  "tags": [
+    {
+      "tag": "呆萌",
+      "score": 2,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/通用/微信图片_2026-01-23_165048_375.webp",
+          "cdnTag": "v1.1.53"
+        }
+      ]
+    },
+    {
+      "tag": "小八",
+      "score": 2,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/通用/微信图片_2026-01-23_165048_375.webp",
+          "cdnTag": "v1.1.53"
+        }
+      ]
+    },
+    {
+      "tag": "IP形象",
+      "score": 2,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/通用/微信图片_2026-01-23_165048_375.webp",
+          "cdnTag": "v1.1.53"
+        }
+      ]
+    },
+    {
+      "tag": "动漫",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/动漫/通用/微信图片_20260126155438_530_4.webp",
+          "cdnTag": "v1.1.53"
+        }
+      ]
+    },
+    {
+      "tag": "伏案酣眠",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/动漫/通用/微信图片_20260126155438_530_4.webp",
+          "cdnTag": "v1.1.53"
+        }
+      ]
+    },
+    {
+      "tag": "复古日漫",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/动漫/通用/微信图片_20260126155438_530_4.webp",
+          "cdnTag": "v1.1.53"
+        }
+      ]
+    },
+    {
+      "tag": "疲惫少年",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/动漫/通用/微信图片_20260126155438_530_4.webp",
+          "cdnTag": "v1.1.53"
+        }
+      ]
+    },
+    {
+      "tag": "自习场景",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/avatar/动漫/通用/微信图片_20260126155438_530_4.webp",
+          "cdnTag": "v1.1.53"
+        }
+      ]
+    }
+  ]
 }

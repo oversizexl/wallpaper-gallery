@@ -1,8 +1,130 @@
 {
-  "generatedAt": "2026-06-21T19:03:34.207Z",
+  "generatedAt": "2026-06-22T20:19:55.493Z",
   "series": "all",
-  "total": 9,
+  "total": 31,
   "tags": [
+    {
+      "tag": "风景",
+      "score": 3,
+      "views": 5,
+      "downloads": 1,
+      "wallpaperCount": 5,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png",
+        "创意设计-商业空间.png",
+        "蓝色雪夜小屋.jpg",
+        "树枝-植物-海棠树.png",
+        "微信图片_20260120161630_514_4.jpg"
+      ]
+    },
+    {
+      "tag": "海滨",
+      "score": 2,
+      "views": 2,
+      "downloads": 1,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png",
+        "微信图片_20260120161630_514_4.jpg"
+      ]
+    },
+    {
+      "tag": "海滨风景",
+      "score": 2,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png"
+      ]
+    },
+    {
+      "tag": "逆光氛围",
+      "score": 2,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png"
+      ]
+    },
+    {
+      "tag": "深海鱼群",
+      "score": 2,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png"
+      ]
+    },
+    {
+      "tag": "治愈系",
+      "score": 2,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png"
+      ]
+    },
+    {
+      "tag": "呆萌",
+      "score": 2,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-01-23_165048_375.jpg"
+      ]
+    },
+    {
+      "tag": "小八",
+      "score": 2,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-01-23_165048_375.jpg"
+      ]
+    },
+    {
+      "tag": "IP形象",
+      "score": 2,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-01-23_165048_375.jpg"
+      ]
+    },
     {
       "tag": "白色小动物",
       "score": 1,
@@ -31,19 +153,6 @@
     },
     {
       "tag": "城市绿化",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "创意设计-商业空间.png"
-      ]
-    },
-    {
-      "tag": "风景",
       "score": 1,
       "views": 1,
       "downloads": 0,
@@ -118,6 +227,188 @@
       ],
       "topWallpapers": [
         "创意设计-商业空间.png"
+      ]
+    },
+    {
+      "tag": "冬日雪景",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "蓝色雪夜小屋.jpg"
+      ]
+    },
+    {
+      "tag": "海浪礁石",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "微信图片_20260120161630_514_4.jpg"
+      ]
+    },
+    {
+      "tag": "海棠树",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "树枝-植物-海棠树.png"
+      ]
+    },
+    {
+      "tag": "黑白",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "微信图片_20260120161630_514_4.jpg"
+      ]
+    },
+    {
+      "tag": "花卉",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "树枝-植物-海棠树.png"
+      ]
+    },
+    {
+      "tag": "静谧",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "微信图片_20260120161630_514_4.jpg"
+      ]
+    },
+    {
+      "tag": "蓝色雪夜小屋",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "蓝色雪夜小屋.jpg"
+      ]
+    },
+    {
+      "tag": "树枝",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "树枝-植物-海棠树.png"
+      ]
+    },
+    {
+      "tag": "植物",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "树枝-植物-海棠树.png"
+      ]
+    },
+    {
+      "tag": "动漫",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_20260126155438_530_4.jpg"
+      ]
+    },
+    {
+      "tag": "伏案酣眠",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_20260126155438_530_4.jpg"
+      ]
+    },
+    {
+      "tag": "复古日漫",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_20260126155438_530_4.jpg"
+      ]
+    },
+    {
+      "tag": "疲惫少年",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_20260126155438_530_4.jpg"
+      ]
+    },
+    {
+      "tag": "自习场景",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_20260126155438_530_4.jpg"
       ]
     }
   ]
