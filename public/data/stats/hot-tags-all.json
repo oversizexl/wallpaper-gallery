@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-22T20:19:55.493Z",
+  "generatedAt": "2026-06-23T19:28:07.025Z",
   "series": "all",
   "total": 31,
   "tags": [
     {
       "tag": "风景",
-      "score": 3,
+      "score": 2,
       "views": 5,
       "downloads": 1,
       "wallpaperCount": 5,
@@ -18,72 +18,6 @@
         "蓝色雪夜小屋.jpg",
         "树枝-植物-海棠树.png",
         "微信图片_20260120161630_514_4.jpg"
-      ]
-    },
-    {
-      "tag": "海滨",
-      "score": 2,
-      "views": 2,
-      "downloads": 1,
-      "wallpaperCount": 2,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "image_iOS26苹果系统空间景深壁纸效..._25.png",
-        "微信图片_20260120161630_514_4.jpg"
-      ]
-    },
-    {
-      "tag": "海滨风景",
-      "score": 2,
-      "views": 1,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "image_iOS26苹果系统空间景深壁纸效..._25.png"
-      ]
-    },
-    {
-      "tag": "逆光氛围",
-      "score": 2,
-      "views": 1,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "image_iOS26苹果系统空间景深壁纸效..._25.png"
-      ]
-    },
-    {
-      "tag": "深海鱼群",
-      "score": 2,
-      "views": 1,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "image_iOS26苹果系统空间景深壁纸效..._25.png"
-      ]
-    },
-    {
-      "tag": "治愈系",
-      "score": 2,
-      "views": 1,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "image_iOS26苹果系统空间景深壁纸效..._25.png"
       ]
     },
     {
@@ -123,6 +57,72 @@
       ],
       "topWallpapers": [
         "微信图片_2026-01-23_165048_375.jpg"
+      ]
+    },
+    {
+      "tag": "海滨",
+      "score": 1,
+      "views": 2,
+      "downloads": 1,
+      "wallpaperCount": 2,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png",
+        "微信图片_20260120161630_514_4.jpg"
+      ]
+    },
+    {
+      "tag": "海滨风景",
+      "score": 1,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png"
+      ]
+    },
+    {
+      "tag": "逆光氛围",
+      "score": 1,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png"
+      ]
+    },
+    {
+      "tag": "深海鱼群",
+      "score": 1,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png"
+      ]
+    },
+    {
+      "tag": "治愈系",
+      "score": 1,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "image_iOS26苹果系统空间景深壁纸效..._25.png"
       ]
     },
     {
