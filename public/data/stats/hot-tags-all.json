@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T19:14:14.536Z",
+  "generatedAt": "2026-06-25T19:26:07.475Z",
   "series": "all",
   "total": 31,
   "tags": [
@@ -18,45 +18,6 @@
         "蓝色雪夜小屋.jpg",
         "树枝-植物-海棠树.png",
         "微信图片_20260120161630_514_4.jpg"
-      ]
-    },
-    {
-      "tag": "呆萌",
-      "score": 2,
-      "views": 1,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "avatar"
-      ],
-      "topWallpapers": [
-        "微信图片_2026-01-23_165048_375.jpg"
-      ]
-    },
-    {
-      "tag": "小八",
-      "score": 2,
-      "views": 1,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "avatar"
-      ],
-      "topWallpapers": [
-        "微信图片_2026-01-23_165048_375.jpg"
-      ]
-    },
-    {
-      "tag": "IP形象",
-      "score": 2,
-      "views": 1,
-      "downloads": 1,
-      "wallpaperCount": 1,
-      "series": [
-        "avatar"
-      ],
-      "topWallpapers": [
-        "微信图片_2026-01-23_165048_375.jpg"
       ]
     },
     {
@@ -227,6 +188,45 @@
       ],
       "topWallpapers": [
         "创意设计-商业空间.png"
+      ]
+    },
+    {
+      "tag": "呆萌",
+      "score": 1,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-01-23_165048_375.jpg"
+      ]
+    },
+    {
+      "tag": "小八",
+      "score": 1,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-01-23_165048_375.jpg"
+      ]
+    },
+    {
+      "tag": "IP形象",
+      "score": 1,
+      "views": 1,
+      "downloads": 1,
+      "wallpaperCount": 1,
+      "series": [
+        "avatar"
+      ],
+      "topWallpapers": [
+        "微信图片_2026-01-23_165048_375.jpg"
       ]
     },
     {
