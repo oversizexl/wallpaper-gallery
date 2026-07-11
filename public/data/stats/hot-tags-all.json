@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T19:04:49.716Z",
+  "generatedAt": "2026-07-11T18:28:26.311Z",
   "series": "all",
   "total": 31,
   "tags": [
@@ -87,32 +87,6 @@
       ]
     },
     {
-      "tag": "白色小动物",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170413.jpeg"
-      ]
-    },
-    {
-      "tag": "插画",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170413.jpeg"
-      ]
-    },
-    {
       "tag": "城市绿化",
       "score": 1,
       "views": 1,
@@ -136,32 +110,6 @@
       ],
       "topWallpapers": [
         "创意设计-商业空间.png"
-      ]
-    },
-    {
-      "tag": "快乐玩耍",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170413.jpeg"
-      ]
-    },
-    {
-      "tag": "萌宠",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        "20260408170413.jpeg"
       ]
     },
     {
@@ -227,6 +175,32 @@
       ],
       "topWallpapers": [
         "微信图片_2026-01-23_165048_375.jpg"
+      ]
+    },
+    {
+      "tag": "白色小动物",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170413.jpeg"
+      ]
+    },
+    {
+      "tag": "插画",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170413.jpeg"
       ]
     },
     {
@@ -308,6 +282,19 @@
       ]
     },
     {
+      "tag": "快乐玩耍",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170413.jpeg"
+      ]
+    },
+    {
       "tag": "蓝色雪夜小屋",
       "score": 0,
       "views": 1,
@@ -318,6 +305,19 @@
       ],
       "topWallpapers": [
         "蓝色雪夜小屋.jpg"
+      ]
+    },
+    {
+      "tag": "萌宠",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        "20260408170413.jpeg"
       ]
     },
     {

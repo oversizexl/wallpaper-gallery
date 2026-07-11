@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T19:04:49.634Z",
+  "generatedAt": "2026-07-11T18:28:26.227Z",
   "series": "mobile",
   "total": 23,
   "tags": [
@@ -120,38 +120,6 @@
       ]
     },
     {
-      "tag": "白色小动物",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "插画",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
       "tag": "城市绿化",
       "score": 1,
       "views": 1,
@@ -184,38 +152,6 @@
       ]
     },
     {
-      "tag": "快乐玩耍",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
-      "tag": "萌宠",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
-          "cdnTag": "v1.2.59"
-        }
-      ]
-    },
-    {
       "tag": "室内景观",
       "score": 1,
       "views": 1,
@@ -244,6 +180,38 @@
         {
           "thumbnail": "/thumbnail/mobile/风景/建筑/创意设计-商业空间.webp",
           "cdnTag": "v1.2.68"
+        }
+      ]
+    },
+    {
+      "tag": "白色小动物",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
+      "tag": "插画",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },
@@ -344,6 +312,22 @@
       ]
     },
     {
+      "tag": "快乐玩耍",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
+          "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
       "tag": "蓝色雪夜小屋",
       "score": 0,
       "views": 1,
@@ -356,6 +340,22 @@
         {
           "thumbnail": "/thumbnail/mobile/风景/冬日雪景/蓝色雪夜小屋.webp",
           "cdnTag": "v1.1.11"
+        }
+      ]
+    },
+    {
+      "tag": "萌宠",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
+          "cdnTag": "v1.2.59"
         }
       ]
     },
