@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-18T18:29:40.198Z",
+  "generatedAt": "2026-07-19T18:29:58.906Z",
   "series": "mobile",
   "total": 23,
   "tags": [
     {
       "tag": "风景",
-      "score": 2,
+      "score": 1,
       "views": 5,
       "downloads": 1,
       "wallpaperCount": 5,
@@ -120,70 +120,6 @@
       ]
     },
     {
-      "tag": "城市绿化",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/风景/建筑/创意设计-商业空间.webp",
-          "cdnTag": "v1.2.68"
-        }
-      ]
-    },
-    {
-      "tag": "建筑",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/风景/建筑/创意设计-商业空间.webp",
-          "cdnTag": "v1.2.68"
-        }
-      ]
-    },
-    {
-      "tag": "室内景观",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/风景/建筑/创意设计-商业空间.webp",
-          "cdnTag": "v1.2.68"
-        }
-      ]
-    },
-    {
-      "tag": "现代建筑",
-      "score": 1,
-      "views": 1,
-      "downloads": 0,
-      "wallpaperCount": 1,
-      "series": [
-        "mobile"
-      ],
-      "topWallpapers": [
-        {
-          "thumbnail": "/thumbnail/mobile/风景/建筑/创意设计-商业空间.webp",
-          "cdnTag": "v1.2.68"
-        }
-      ]
-    },
-    {
       "tag": "白色小动物",
       "score": 0,
       "views": 1,
@@ -212,6 +148,22 @@
         {
           "thumbnail": "/thumbnail/mobile/插画/萌宠/20260408170413.webp",
           "cdnTag": "v1.2.59"
+        }
+      ]
+    },
+    {
+      "tag": "城市绿化",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/风景/建筑/创意设计-商业空间.webp",
+          "cdnTag": "v1.2.68"
         }
       ]
     },
@@ -296,6 +248,22 @@
       ]
     },
     {
+      "tag": "建筑",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/风景/建筑/创意设计-商业空间.webp",
+          "cdnTag": "v1.2.68"
+        }
+      ]
+    },
+    {
       "tag": "静谧",
       "score": 0,
       "views": 1,
@@ -360,6 +328,22 @@
       ]
     },
     {
+      "tag": "室内景观",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/风景/建筑/创意设计-商业空间.webp",
+          "cdnTag": "v1.2.68"
+        }
+      ]
+    },
+    {
       "tag": "树枝",
       "score": 0,
       "views": 1,
@@ -372,6 +356,22 @@
         {
           "thumbnail": "/thumbnail/mobile/风景/花卉/树枝-植物-海棠树.webp",
           "cdnTag": "v1.1.22"
+        }
+      ]
+    },
+    {
+      "tag": "现代建筑",
+      "score": 0,
+      "views": 1,
+      "downloads": 0,
+      "wallpaperCount": 1,
+      "series": [
+        "mobile"
+      ],
+      "topWallpapers": [
+        {
+          "thumbnail": "/thumbnail/mobile/风景/建筑/创意设计-商业空间.webp",
+          "cdnTag": "v1.2.68"
         }
       ]
     },
